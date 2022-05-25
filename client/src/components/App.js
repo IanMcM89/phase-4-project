@@ -1,24 +1,46 @@
-import logo from '../logo.svg';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Login from "../pages/Login"
 import '../styles/App.css';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // auto-login user
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((userData) => setUser(userData));
+      }
+    });
+  }, []);
+
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+      body: JSON.stringify({}),
+    }).then((response) => {
+      if (response.ok) {
+        console.log("Logged Out")
+      }
+    });
+  }
+
+  if (!user) return <Login onLogin={setUser} />;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      <BrowserRouter>
+        <Switch>
+          <Route path="/">
+            <p>Welcome ${user.username}</p>
+            <button onClick={handleLogout}>
+              Logout
+            </button>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </main>
   );
 }
 
