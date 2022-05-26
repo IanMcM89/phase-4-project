@@ -4,11 +4,11 @@ function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
+    setLoading(true);
 
     const response = await fetch("/login", {
       method: "POST",
@@ -19,6 +19,7 @@ function LoginForm({ onLogin }) {
     });
 
     const userData = await response.json();
+    setLoading(false);
     if (response.ok) {
       onLogin(userData);
     } else {
@@ -41,7 +42,7 @@ function LoginForm({ onLogin }) {
         <br/>
         <label htmlFor="password">Password</label>
         <input
-          type="text"
+          type="password"
           id="password"
           autoComplete="off"
           value={password}
@@ -49,7 +50,7 @@ function LoginForm({ onLogin }) {
         />
         <br/>
         <button type="submit">
-          {isLoading ? "Loading..." : "Login"}
+          {loading ? "Loading..." : "Login"}
         </button>
         <br/>
         {errors.map((error) => <p key={error}>{error}</p>)}
