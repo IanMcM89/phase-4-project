@@ -25,7 +25,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path="/">
-              <p>Welcome ${user.username}</p>
+              <p>Welcome {user.username}</p>
             </Route>
           </Switch>
         </BrowserRouter>

@@ -67,7 +67,9 @@ function SignUpForm({ onLogin }) {
           {loading ? "Loading..." : "Sign Up"}
         </button>
         <br/>
-        {errors.map((error) => <p key={error}>{error}</p>)}
+        {errors.map((error) => 
+          <p key={error} style={{ color: 'red' }}>{error}</p>
+        )}
       </form>
     </main>
   )
