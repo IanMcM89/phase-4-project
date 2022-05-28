@@ -11,7 +11,7 @@ function SignUpForm({ onLogin }) {
     e.preventDefault();
     setLoading(true);
 
-    const response = await fetch("/signup", {
+    const r = await fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,9 +23,9 @@ function SignUpForm({ onLogin }) {
       }),
     });
 
-    const newUserData = await response.json();
+    const newUserData = await r.json();
     setLoading(false);
-    if (response.ok) {
+    if (r.ok) {
       onLogin(newUserData);
     } else {
       setErrors(newUserData.errors);

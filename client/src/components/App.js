@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
+import WorkoutList from "../pages/WorkoutList";
 import '../styles/App.css';
 
 function App() {
@@ -9,9 +10,9 @@ function App() {
 
   useEffect(() => {
     // auto-login user
-    fetch("/me").then((response) => {
-      if (response.ok) {
-        response.json().then((userData) => setUser(userData));
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((userData) => setUser(userData));
       }
     });
   }, []);
@@ -26,6 +27,7 @@ function App() {
           <Switch>
             <Route path="/">
               <p>Welcome {user.username}</p>
+              <WorkoutList/>
             </Route>
           </Switch>
         </BrowserRouter>

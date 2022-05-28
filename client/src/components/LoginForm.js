@@ -10,7 +10,7 @@ function LoginForm({ onLogin }) {
     e.preventDefault();
     setLoading(true);
 
-    const response = await fetch("/login", {
+    const r = await fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,9 +18,9 @@ function LoginForm({ onLogin }) {
       body: JSON.stringify({ username, password }),
     });
 
-    const userData = await response.json();
+    const userData = await r.json();
     setLoading(false);
-    if (response.ok) {
+    if (r.ok) {
       onLogin(userData);
     } else {
       setErrors(userData.errors);
