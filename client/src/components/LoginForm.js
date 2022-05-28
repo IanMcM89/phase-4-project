@@ -10,7 +10,7 @@ function LoginForm({ onLogin }) {
     e.preventDefault();
     setLoading(true);
 
-    const r = await fetch("/login", {
+    const r = await fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

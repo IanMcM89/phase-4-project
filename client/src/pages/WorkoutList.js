@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Workout from "../components/Workout";
 
 function WorkoutList() {
   const [workouts, setWorkouts] = useState([]);
 
   const handleDelete = workout => {
-    fetch(`/workouts/${workout.id}`, {
+    fetch(`/api/workouts/${workout.id}`, {
       method: "DELETE"
     }).then(
       setWorkouts(workouts.filter((element) => element.id !== workout.id))
@@ -13,7 +14,7 @@ function WorkoutList() {
   };
 
   useEffect(() => {
-    fetch("/workouts")
+    fetch("/api/workouts")
       .then((r) => r.json())
       .then(setWorkouts)
   }, []);
@@ -27,7 +28,7 @@ function WorkoutList() {
       ) : (
         <>
           <h2>No workouts Found</h2>
-          <button>
+          <button as={Link} to="/create">
             Create a New Workout
           </button>
         </>
