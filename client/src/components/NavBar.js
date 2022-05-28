@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 function NavBar({ setUser }) {
-  const [] = useState();
-
   function handleLogout() {
-    fetch("/logout", {
+    fetch("/api/logout", {
       method: "DELETE"
     }).then((response) => {
       if (response.ok) {
@@ -15,6 +14,9 @@ function NavBar({ setUser }) {
 
   return (
     <div className="App">
+      <button as={Link} to="/create">
+        Create a New Workout
+      </button>
       <button onClick={handleLogout}>
         Logout
       </button>

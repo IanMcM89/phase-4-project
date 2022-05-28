@@ -4,13 +4,14 @@ import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import WorkoutList from "../pages/WorkoutList";
 import '../styles/App.css';
+import NewWorkout from "../pages/NewWorkout";
 
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     // auto-login user
-    fetch("/me").then((r) => {
+    fetch("/api/me").then((r) => {
       if (r.ok) {
         r.json().then((userData) => setUser(userData));
       }
@@ -25,6 +26,9 @@ function App() {
       <main className="App">
         <BrowserRouter>
           <Switch>
+            <Route path="/create">
+              <NewWorkout/>
+            </Route>
             <Route path="/">
               <p>Welcome {user.username}</p>
               <WorkoutList/>
