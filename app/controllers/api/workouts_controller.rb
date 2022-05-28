@@ -1,4 +1,4 @@
-class WorkoutsController < ApplicationController
+class Api::WorkoutsController < ApplicationController
 
   # GET /workouts
   def index
@@ -18,10 +18,20 @@ class WorkoutsController < ApplicationController
     head :no_content
   end
 
+  # POST /workouts
+  def create
+    workout = @current_user.workouts.create!(workout_params)
+    render json: workout, status: :created
+  end
+
   private
 
   def find_workout
     Workout.find(params[:id])
+  end
+
+  def workout_params
+    params.permit(:title, :image_url, :description, :is_weighted, :sets, :reps)
   end
 
 end
