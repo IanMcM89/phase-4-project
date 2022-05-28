@@ -1,6 +1,6 @@
 import React from "react";
 
-function Workout({ workout }) {
+function Workout({ workout, onDelete }) {
   return (
     <>
       <h2>{workout.title}</h2>
@@ -9,6 +9,7 @@ function Workout({ workout }) {
       <p>Sets: {workout.sets}</p>
       <p>Reps: {workout.reps}</p>
       <span>Posted By: {workout.user.username}</span>
+      <button onClick={() => onDelete(workout)} style={{ border: "none" }}>🚮</button>
     </>
   )
 }

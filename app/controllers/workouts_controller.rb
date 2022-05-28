@@ -11,6 +11,13 @@ class WorkoutsController < ApplicationController
     render json: workout
   end
 
+  # DELETE /workouts/:id
+  def destroy
+    workout = find_workout
+    workout.destroy
+    head :no_content
+  end
+
   private
 
   def find_workout
