@@ -14,12 +14,17 @@ function NavBar({ setUser }) {
 
   return (
     <div className="App">
-      <button as={Link} to="/create">
-        Create a New Workout
-      </button>
-      <button onClick={handleLogout}>
-        Logout
-      </button>
+      <nav>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+        <Link to="/create">
+          <button>Create Workout</button>
+        </Link>
+        <button onClick={handleLogout}>
+          Logout
+        </button>
+      </nav>
     </div>
   )
 }

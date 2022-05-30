@@ -22,9 +22,9 @@ function App() {
 
   return (
     <>
-      <NavBar setUser={setUser}/>
       <main className="App">
         <BrowserRouter>
+          <NavBar setUser={setUser}/>
           <Switch>
             <Route path="/create">
               <NewWorkout/>
