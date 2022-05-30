@@ -9,6 +9,8 @@ class Api::WorkoutsController < ApplicationController
   def show
     workout = find_workout
     render json: workout
+  rescue ActiveRecord::RecordNotFound
+    render json: "Workout not found", status: :not_found
   end
 
   # DELETE /workouts/:id

@@ -27,7 +27,7 @@ function App() {
           <NavBar setUser={setUser}/>
           <Switch>
             <Route path="/create">
-              <NewWorkout/>
+              <NewWorkout user={user}/>
             </Route>
             <Route path="/">
               <p>Welcome {user.username}</p>

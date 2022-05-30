@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 
-function NewWorkout() {
+function NewWorkout({ user }) {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -11,7 +11,9 @@ function NewWorkout() {
     description: "",
     is_weighted: false,
     sets: 3,
-    reps: 12
+    reps: 12,
+    category_id: 1,
+    posted_by: user.username
   });
 
   function handleSubmit(e) {

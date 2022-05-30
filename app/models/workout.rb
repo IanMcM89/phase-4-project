@@ -1,5 +1,7 @@
 class Workout < ApplicationRecord
-  belongs_to :user
+  belongs_to :category
+  has_many :reviews
+  has_many :users, through: :reviews
 
   validates :title, :image_url, presence: true
   validates :description, length: { maximum: 500,

@@ -13,6 +13,21 @@ User.create(
   password_confirmation: "Atlas-111"
 )
 
+User.create(
+  id: 2,
+  username: "user1",
+  password: "password1",
+  password_confirmation: "password1"
+)
+
+Category.create(id: 1, muscle_group: "Chest")
+Category.create(id: 2, muscle_group: "Back")
+Category.create(id: 3, muscle_group: "Biceps")
+Category.create(id: 4, muscle_group: "Triceps")
+Category.create(id: 5, muscle_group: "Shoulders")
+Category.create(id: 6, muscle_group: "Abdomen")
+Category.create(id: 7, muscle_group: "Legs")
+
 Workout.create(
   id: 1,
   title: "Bicep Curls", 
@@ -21,7 +36,8 @@ Workout.create(
   sets: 3,
   reps: 12, 
   is_weighted: true, 
-  user_id: 1
+  category_id: 3,
+  posted_by: "ianmcm89"
 )
 
 Workout.create(
@@ -32,7 +48,8 @@ Workout.create(
   sets: 3,
   reps: 12, 
   is_weighted: false, 
-  user_id: 1
+  category_id: 1,
+  posted_by: "ianmcm89"
 )
 
 Workout.create(
@@ -43,5 +60,31 @@ Workout.create(
   sets: 3,
   reps: 12, 
   is_weighted: false, 
-  user_id: 1
+  category_id: 4,
+  posted_by: "ianmcm89"
+)
+
+Review.create(
+  id: 1,
+  comment: "",
+  rating: 3,
+  user_id: 2,
+  workout_id: 1
+)
+
+Review.create(
+  id: 1,
+  comment: "",
+  rating: 3,
+  user_id: 2,
+  workout_id: 4,
+
+)
+
+Review.create(
+  id: 1,
+  comment: "",
+  rating: 3,
+  user_id: 2,
+  workout_id: 3
 )

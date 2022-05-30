@@ -9,7 +9,6 @@ function Workout({ workout, onDelete }) {
       <span>Weighted: {workout.is_weighted ? 'Yes' : 'No'}</span>
       <p>Sets: {workout.sets}</p>
       <p>Reps: {workout.reps}</p>
-      <span>Posted By: {workout.user.username}</span>
       <button onClick={() => onDelete(workout)} style={{ border: "none" }}>🚮</button>
     </>
   )
