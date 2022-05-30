@@ -3,8 +3,8 @@ import { useHistory } from "react-router";
 
 function NewWorkout() {
   const history = useHistory();
-  const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     image_url: "",
@@ -14,29 +14,27 @@ function NewWorkout() {
     reps: 12
   });
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-
-    const r = await fetch("/api/workouts", {
+    fetch("/api/workouts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
+    }).then((r) => {
+      setLoading(false);
+      if (r.ok) {
+        history.push("/");
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
     });
-
-    const newWorkout = await r.json();
-    setLoading(false);
-    if (r.ok) {
-      history.push("/");
-    } else {
-      setErrors(newWorkout.errors);
-    }
   }
 
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
+    setFormData({...formData, [e.target.id]: e.target.value});
   };
 
   return(
@@ -46,15 +44,15 @@ function NewWorkout() {
         <label htmlFor="title">Title</label>
         <input
           type="text"
-          name="title"
+          id="title"
           value={formData.title}
           onChange={handleChange}
         />
         <br/>
         <label htmlFor="image_url">Image URL:</label>
         <input
-          type="text"
-          name="image_url"
+          type="url"
+          id="image_url"
           value={formData.image_url}
           onChange={handleChange}
         />
@@ -62,7 +60,7 @@ function NewWorkout() {
         <label htmlFor="description">Method</label>
         <input
           type="textarea"
-          name="description"
+          id="description"
           value={formData.description}
           onChange={handleChange}
         />
@@ -70,10 +68,34 @@ function NewWorkout() {
         <label htmlFor="is_weighted">Weighted</label>
         <input
           type="checkbox"
-          name="is_weighted"
+          id="is_weighted"
           value={formData.is_weighted}
+          onChange={(e) => {setFormData(
+            {...formData, [e.target.id]: !formData.is_weighted}
+            );
+          }}
+        />
+        <br/>
+        <label htmlFor="sets">Sets</label>
+        <input
+          type="number" 
+          id="sets" 
+          min="1" 
+          max="10"
+          value={formData.sets}
           onChange={handleChange}
         />
+        <br/>
+        <label htmlFor="reps">Reps</label>
+        <input
+          type="number" 
+          id="reps"  
+          min="1" 
+          max="100"
+          value={formData.reps}
+          onChange={handleChange}
+        />
+        <br/>
         <button type="submit">
           {loading ? "Loading..." : "Submit"}
         </button>
