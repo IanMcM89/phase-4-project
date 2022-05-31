@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     resources :workouts
-    resources :categories, only: [:index, :show]
+    resources :muscles, only: [:index, :show]
     resources :reviews, only: [:index, :show, :create]
     post "/signup", to: "users#create"
     get "/me", to: "users#show"

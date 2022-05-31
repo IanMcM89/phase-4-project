@@ -7,7 +7,7 @@ class CreateWorkouts < ActiveRecord::Migration[6.1]
       t.boolean :is_weighted
       t.integer :sets
       t.integer :reps
-      t.integer :category_id
+      t.integer :muscle_id
       t.string :posted_by
 
       t.timestamps

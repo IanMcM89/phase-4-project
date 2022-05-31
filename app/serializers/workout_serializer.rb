@@ -1,6 +1,6 @@
 class WorkoutSerializer < ActiveModel::Serializer
-  attributes :id, :title, :image_url, :description, :is_weighted, :sets, :reps, :category_id, :posted_by
+  attributes :id, :title, :image_url, :description, :is_weighted, :sets, :reps, :muscle_id, :posted_by
 
-  belongs_to :category
+  belongs_to :muscle
   has_many :reviews
 end

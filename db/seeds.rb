@@ -20,13 +20,13 @@ User.create(
   password_confirmation: "password1"
 )
 
-Category.create(id: 1, muscle_group: "Chest")
-Category.create(id: 2, muscle_group: "Back")
-Category.create(id: 3, muscle_group: "Biceps")
-Category.create(id: 4, muscle_group: "Triceps")
-Category.create(id: 5, muscle_group: "Shoulders")
-Category.create(id: 6, muscle_group: "Abdomen")
-Category.create(id: 7, muscle_group: "Legs")
+Muscle.create(id: 1, group: "Chest")
+Muscle.create(id: 2, group: "Back")
+Muscle.create(id: 3, group: "Biceps")
+Muscle.create(id: 4, group: "Triceps")
+Muscle.create(id: 5, group: "Shoulders")
+Muscle.create(id: 6, group: "Abdomen")
+Muscle.create(id: 7, group: "Legs")
 
 Workout.create(
   id: 1,
@@ -36,7 +36,7 @@ Workout.create(
   sets: 3,
   reps: 12, 
   is_weighted: true, 
-  category_id: 3,
+  muscle_id: 3,
   posted_by: "ianmcm89"
 )
 
@@ -48,7 +48,7 @@ Workout.create(
   sets: 3,
   reps: 12, 
   is_weighted: false, 
-  category_id: 1,
+  muscle_id: 1,
   posted_by: "ianmcm89"
 )
 
@@ -60,11 +60,11 @@ Workout.create(
   sets: 3,
   reps: 12, 
   is_weighted: false, 
-  category_id: 4,
+  muscle_id: 4,
   posted_by: "ianmcm89"
 )
 
-Review.create(
+User.second.reviews.create(
   id: 1,
   comment: "",
   rating: 3,
@@ -73,16 +73,15 @@ Review.create(
 )
 
 Review.create(
-  id: 1,
+  id: 2,
   comment: "",
   rating: 3,
   user_id: 2,
-  workout_id: 4,
-
+  workout_id: 2
 )
 
 Review.create(
-  id: 1,
+  id: 3,
   comment: "",
   rating: 3,
   user_id: 2,

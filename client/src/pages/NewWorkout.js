@@ -12,7 +12,7 @@ function NewWorkout({ user }) {
     is_weighted: false,
     sets: 3,
     reps: 12,
-    category_id: 1,
+    muscle_id: 1,
     posted_by: user.username
   });
 

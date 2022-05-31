@@ -22,7 +22,7 @@ class Api::WorkoutsController < ApplicationController
 
   # POST /workouts
   def create
-    workout = @current_user.workouts.create!(workout_params)
+    workout = Workout.create!(workout_params)
     render json: workout, status: :created
   end
 
@@ -33,7 +33,7 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def workout_params
-    params.permit(:title, :image_url, :description, :is_weighted, :sets, :reps)
+    params.permit(:title, :image_url, :description, :is_weighted, :sets, :reps, :muscle_id, :posted_by)
   end
 
 end
