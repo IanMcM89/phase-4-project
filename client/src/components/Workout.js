@@ -11,6 +11,11 @@ function Workout({ workout, onDelete }) {
       <p>Sets: {workout.sets}</p>
       <p>Reps: {workout.reps}</p>
       <p>Posted By: {workout.posted_by}</p>
+      <ul>Reviews:
+        {workout.reviews.map((review) => 
+          <li key={review.id}>{review.comment} {review.rating}</li>
+        )}
+      </ul>
       <button onClick={() => onDelete(workout)} style={{ border: "none" }}>🚮</button>
     </>
   )

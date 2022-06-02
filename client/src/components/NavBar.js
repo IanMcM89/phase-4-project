@@ -1,4 +1,5 @@
 import React from "react";
+import { Header } from "../styles";
 import { Link } from "react-router-dom";
 
 function NavBar({ setUser }) {
@@ -13,7 +14,7 @@ function NavBar({ setUser }) {
   }
 
   return (
-    <div className="App">
+    <Header>
       <nav>
         <Link to="/">
           <button>Home</button>
@@ -25,7 +26,7 @@ function NavBar({ setUser }) {
           Logout
         </button>
       </nav>
-    </div>
+    </Header>
   )
 }
 

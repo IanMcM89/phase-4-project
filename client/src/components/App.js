@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import WorkoutList from "../pages/WorkoutList";
-import '../styles/App.css';
+// import '../styles/App.css';
 import NewWorkout from "../pages/NewWorkout";
+import styled from "styled-components";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,22 +23,29 @@ function App() {
 
   return (
     <>
-      <main className="App">
-        <BrowserRouter>
-          <NavBar setUser={setUser}/>
-          <Switch>
-            <Route path="/create">
-              <NewWorkout user={user}/>
-            </Route>
-            <Route path="/">
-              <p>Welcome {user.username}</p>
-              <WorkoutList/>
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      </main>
+      <NavBar setUser={setUser} />
+      <Wrapper>
+        <Switch>
+          <Route path="/create">
+            <NewWorkout user={user} />
+          </Route>
+          <Route path="/">
+            <p>Welcome {user.username}</p>
+            <WorkoutList />
+          </Route>
+        </Switch>
+      </Wrapper>
     </>
   );
 }
+
+const Wrapper = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  width: 90vw;
+  height: 90vh;
+`;
 
 export default App;
