@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "../styles";
 import ImageMap from "../components/ImageMap";
 import WorkoutTab from "../components/WorkoutTab";
-import { Button } from "../styles";
 import styled from "styled-components";
 
 function WorkoutList() {
-  const [muscles, setMuscles] = useState([]);
   const [workouts, setWorkouts] = useState([]);
-
-  const handleDelete = workout => {
-    fetch(`/api/workouts/${workout.id}`, {
-      method: "DELETE"
-    }).then(
-      setWorkouts(workouts.filter((element) => element.id !== workout.id))
-    );
-  };
 
   useEffect(() => {
     fetch("/api/workouts")
@@ -23,16 +14,38 @@ function WorkoutList() {
       .then(setWorkouts)
   }, []);
 
+  const filterWorkouts = (group) => {
+    fetch("/api/workouts")
+    .then((r) => r.json())
+    .then((workouts) => {
+      group !== "default" ? (
+        setWorkouts(workouts.filter((workout) => workout.muscle.group === group))
+      ) : (
+        setWorkouts(workouts)
+      );
+    });
+  }
+
+  const handleDelete = (workout) => {
+    fetch(`/api/workouts/${workout.id}`, {
+      method: "DELETE"
+    }).then(setWorkouts(workouts.filter((i) => i.id !== workout.id)));
+  };
+
   return (
     <Wrapper>
-      <ImageMap/>
+      <ImageMap filterWorkouts={filterWorkouts} />
       <Section>
         <Link style={{ textDecoration: "none" }} to="/create">
           <Button variant={"white"}>+</Button>
         </Link>
         {workouts.length > 0 ? (
           workouts.map((workout) => (
-            <WorkoutTab key={workout.id} workout={workout} onDelete={handleDelete} />
+            <WorkoutTab
+              key={workout.id}
+              workout={workout}
+              onDelete={handleDelete}
+            />
           ))
         ) : (
           <>
