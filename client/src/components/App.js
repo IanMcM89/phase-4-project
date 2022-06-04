@@ -23,14 +23,16 @@ function App() {
 
   return (
     <>
-      <NavBar setUser={setUser} />
+      <NavBar user={user} setUser={setUser} />
       <Wrapper>
         <Switch>
           <Route path="/create">
             <NewWorkout user={user} />
           </Route>
+          <Route path="/workout/:id">
+            <h1>Workouts:</h1>
+          </Route>
           <Route path="/">
-            <p>Welcome {user.username}</p>
             <WorkoutList />
           </Route>
         </Switch>
@@ -41,11 +43,12 @@ function App() {
 
 const Wrapper = styled.main`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 8px;
-  width: 90vw;
+  width: 100vw;
   height: 90vh;
+  margin: auto;
+  overflow: hidden;
 `;
 
 export default App;
