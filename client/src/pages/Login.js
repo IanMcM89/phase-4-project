@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 import { Header } from "../styles";
-import { Button } from "../styles";
+import { Button, Logo } from "../styles";
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
@@ -22,7 +22,7 @@ function Login({ onLogin }) {
               <LoginForm onLogin={onLogin} />
               <p>
                 Don't have an account? &nbsp;
-                <Button onClick={() => setShowLogin(false)}>
+                <Button variant="blue" onClick={() => setShowLogin(false)}>
                   Sign Up
                 </Button>
               </p>
@@ -32,7 +32,7 @@ function Login({ onLogin }) {
               <SignUpForm onLogin={onLogin} />
               <p>
                 Already have an account? &nbsp;
-                <Button onClick={() => setShowLogin(true)}>
+                <Button variant="blue" onClick={() => setShowLogin(true)}>
                   Login
                 </Button>
               </p>
@@ -43,14 +43,6 @@ function Login({ onLogin }) {
     </>
   )
 }
-
-const Logo = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 20%;
-  margin: 8px 0 16px;
-`;
 
 const Title = styled.h1`
   font-family: "Permanent Marker", cursive;
