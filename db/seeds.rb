@@ -20,13 +20,55 @@ User.create(
   password_confirmation: "password1"
 )
 
-Muscle.create(id: 1, group: "chest")
-Muscle.create(id: 2, group: "abs")
-Muscle.create(id: 3, group: "back_neck")
-Muscle.create(id: 4, group: "upper_arms_shoulders")
-Muscle.create(id: 5, group: "forearms")
-Muscle.create(id: 6, group: "upper_legs_glutes")
-Muscle.create(id: 7, group: "lower_legs")
+Muscle.create(
+  id: 1, 
+  group: "chest",
+  title: "Chest",
+  image_url: "/images/body/chest.png",
+  coords: "160,186,132,197,115,213,115,145,160,141,206,145,208,210,186,195"
+)
+Muscle.create(
+  id: 2, 
+  group: "abs",
+  title: "Abs",
+  image_url: "/images/body/abs.png",
+  coords: "161,328,116,284,116,210,160,189,204,209,435,250,523,250,524,276,435,276,435,250,204,209,204,283"
+)
+Muscle.create(
+  id: 3, 
+  group: "back_neck",
+  title: "Back/Neck",
+  image_url: "/images/body/back_neck.png",
+  coords: "452,270,428,190,434,132,480,91,520,132,530,191,505,270,481,285,196,135,126,135,145,109,176,109,196,135"
+)
+Muscle.create(
+  id: 4, 
+  group: "upper_arms_shoulders",
+  title: "Upper Arms/Shoulders",
+  image_url: "/images/body/upper_arms_shoulders.png",
+  coords: "99,233,72,216,92,133,126,134,199,133,225,230,256,215,234,133,120,134,408,132,392,214,416,233,443,132,406,132,517,131,544,240,572,225,546,131,125,134"
+)
+Muscle.create(
+  id: 5, 
+  group: "forearms",
+  title: "Forearms",
+  image_url: "/images/body/forearms.png",
+  coords: "49,301,71,218,98,237,68,301,252,303,220,238,256,216,280,303,362,305,385,225,418,240,388,305,568,307,540,243,573,225,593,307"
+)
+Muscle.create(
+  id: 6, 
+  group: "upper_legs_glutes",
+  title: "Upper Legs/Glutes",
+  image_url: "/images/body/upper_legs_glutes.png",
+  coords: "107,283,110,423,212,423,212,282,427,279,426,431,532,432,532,278"
+)
+Muscle.create(
+  id: 7, 
+  group: "lower_legs",
+  title: "Lower Legs",
+  image_url: "/images/body/lower_legs.png",
+  coords: "109,433,120,541,203,540,209,433,423,435,435,553,521,553,532,435"
+)
 
 Workout.create(
   id: 1,
