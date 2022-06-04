@@ -20,28 +20,16 @@ User.create(
   password_confirmation: "password1"
 )
 
-Muscle.create(id: 1, group: "Chest")
-Muscle.create(id: 2, group: "Back")
-Muscle.create(id: 3, group: "Biceps")
-Muscle.create(id: 4, group: "Triceps")
-Muscle.create(id: 5, group: "Shoulders")
-Muscle.create(id: 6, group: "Abdomen")
-Muscle.create(id: 7, group: "Legs")
+Muscle.create(id: 1, group: "chest")
+Muscle.create(id: 2, group: "abs")
+Muscle.create(id: 3, group: "back_neck")
+Muscle.create(id: 4, group: "upper_arms_shoulders")
+Muscle.create(id: 5, group: "forearms")
+Muscle.create(id: 6, group: "upper_legs_glutes")
+Muscle.create(id: 7, group: "lower_legs")
 
 Workout.create(
   id: 1,
-  title: "Bicep Curls", 
-  image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
-  description: "", 
-  sets: 3,
-  reps: 12, 
-  is_weighted: true, 
-  muscle_id: 3,
-  posted_by: "ianmcm89"
-)
-
-Workout.create(
-  id: 2,
   title: "Pushups", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "", 
@@ -53,7 +41,31 @@ Workout.create(
 )
 
 Workout.create(
+  id: 2,
+  title: "Abs", 
+  image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
+  description: "", 
+  sets: 3,
+  reps: 12, 
+  is_weighted: false, 
+  muscle_id: 2,
+  posted_by: "user1"
+)
+
+Workout.create(
   id: 3,
+  title: "Back", 
+  image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
+  description: "", 
+  sets: 3,
+  reps: 12, 
+  is_weighted: true, 
+  muscle_id: 3,
+  posted_by: "ianmcm89"
+)
+
+Workout.create(
+  id: 4,
   title: "Tricep Dips", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "", 
@@ -61,6 +73,42 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 4,
+  posted_by: "ianmcm89"
+)
+
+Workout.create(
+  id: 5,
+  title: "Forearms", 
+  image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
+  description: "", 
+  sets: 3,
+  reps: 12, 
+  is_weighted: false, 
+  muscle_id: 5,
+  posted_by: "user1"
+)
+
+Workout.create(
+  id: 6,
+  title: "Upper Legs/Glutes", 
+  image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
+  description: "", 
+  sets: 3,
+  reps: 12, 
+  is_weighted: false, 
+  muscle_id: 6,
+  posted_by: "user1"
+)
+
+Workout.create(
+  id: 7,
+  title: "Lower Legs", 
+  image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
+  description: "", 
+  sets: 3,
+  reps: 12, 
+  is_weighted: false, 
+  muscle_id: 7,
   posted_by: "ianmcm89"
 )
 
