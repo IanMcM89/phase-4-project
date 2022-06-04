@@ -36,9 +36,9 @@ function WorkoutList() {
     <Wrapper>
       <ImageMap filterWorkouts={filterWorkouts} />
       <Section>
-        <Link style={{ textDecoration: "none" }} to="/create">
+        {/* <Link style={{ textDecoration: "none" }} to="/create">
           <Button variant={"white"}>+</Button>
-        </Link>
+        </Link> */}
         {workouts.length > 0 ? (
           workouts.map((workout) => (
             <WorkoutTab
