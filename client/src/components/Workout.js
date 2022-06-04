@@ -16,7 +16,7 @@ function Workout({ workout, onDelete }) {
           <li key={review.id}>{review.comment} {review.rating}</li>
         )}
       </ul>
-      <button onClick={() => onDelete(workout)} style={{ border: "none" }}>🚮</button>
+      {/* <button onClick={() => onDelete(workout)} style={{ border: "none" }}>🚮</button> */}
     </>
   )
 }
