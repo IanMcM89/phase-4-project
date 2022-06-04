@@ -27,47 +27,41 @@ Muscle.create(
   image_url: "/images/body/chest.png",
   coords: "160,186,132,197,115,213,115,145,160,141,206,145,208,210,186,195"
 )
+
 Muscle.create(
   id: 2, 
   group: "abs",
+  sub_groups: "[Abdominals, Qbliques]",
   title: "Abs",
   image_url: "/images/body/abs.png",
   coords: "161,328,116,284,116,210,160,189,204,209,435,250,523,250,524,276,435,276,435,250,204,209,204,283"
 )
+
 Muscle.create(
   id: 3, 
   group: "back_neck",
+  sub_groups: "[Lats, Traps, Rhumboids, Erector Spinae]",
   title: "Back/Neck",
   image_url: "/images/body/back_neck.png",
   coords: "452,270,428,190,434,132,480,91,520,132,530,191,505,270,481,285,196,135,126,135,145,109,176,109,196,135"
 )
+
 Muscle.create(
   id: 4, 
-  group: "upper_arms_shoulders",
-  title: "Upper Arms/Shoulders",
+  group: "arms_shoulders",
+  sub_groups: "[Biceps, Triceps, Forearms, Deltoids]",
+  title: "Arms/Shoulders",
   image_url: "/images/body/upper_arms_shoulders.png",
-  coords: "99,233,72,216,92,133,126,134,199,133,225,230,256,215,234,133,120,134,408,132,392,214,416,233,443,132,406,132,517,131,544,240,572,225,546,131,125,134"
+  coords: "45,305,80,154,101,130,128,142,75,305,247,305,364,303,401,150,424,132,445,132,389,303,568,301,512,133,539,133,555,156,594,301,247,305,192,139,223,132,237,153,272,305"
 )
+
 Muscle.create(
   id: 5, 
-  group: "forearms",
-  title: "Forearms",
-  image_url: "/images/body/forearms.png",
-  coords: "49,301,71,218,98,237,68,301,252,303,220,238,256,216,280,303,362,305,385,225,418,240,388,305,568,307,540,243,573,225,593,307"
-)
-Muscle.create(
-  id: 6, 
-  group: "upper_legs_glutes",
-  title: "Upper Legs/Glutes",
-  image_url: "/images/body/upper_legs_glutes.png",
-  coords: "107,283,110,423,212,423,212,282,427,279,426,431,532,432,532,278"
-)
-Muscle.create(
-  id: 7, 
-  group: "lower_legs",
-  title: "Lower Legs",
-  image_url: "/images/body/lower_legs.png",
-  coords: "109,433,120,541,203,540,209,433,423,435,435,553,521,553,532,435"
+  group: "legs_glutes",
+  sub_groups: "[Quads, Hamstrings, Glutes, Calves]",
+  title: "Legs/Glutes",
+  image_url: "/images/body/legs_glutes.png",
+  coords: "117,544,106,297,136,297,157,333,184,295,215,295,204,545,436,549,422,325,432,277,479,285,523,275,535,325,522,550"
 )
 
 Workout.create(
@@ -79,30 +73,33 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 1,
+  target_muscles: "[Pecs]",
   posted_by: "ianmcm89"
 )
 
 Workout.create(
   id: 2,
-  title: "Abs", 
+  title: "Crunches", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "", 
   sets: 3,
   reps: 12, 
   is_weighted: false, 
   muscle_id: 2,
+  target_muscles: "[Abdominals]",
   posted_by: "user1"
 )
 
 Workout.create(
   id: 3,
-  title: "Back", 
+  title: "Pull Ups", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "", 
   sets: 3,
   reps: 12, 
   is_weighted: true, 
   muscle_id: 3,
+  target_muscles: "[Lats, Rhomboids]",
   posted_by: "ianmcm89"
 )
 
@@ -115,43 +112,21 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 4,
+  target_muscles: "[Triceps]",
   posted_by: "ianmcm89"
 )
 
 Workout.create(
   id: 5,
-  title: "Forearms", 
+  title: "Weighted Squats", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "", 
   sets: 3,
   reps: 12, 
-  is_weighted: false, 
+  is_weighted: true, 
   muscle_id: 5,
+  target_muscles: "[Glutes, Quads, Hamstrings]",
   posted_by: "user1"
-)
-
-Workout.create(
-  id: 6,
-  title: "Upper Legs/Glutes", 
-  image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
-  description: "", 
-  sets: 3,
-  reps: 12, 
-  is_weighted: false, 
-  muscle_id: 6,
-  posted_by: "user1"
-)
-
-Workout.create(
-  id: 7,
-  title: "Lower Legs", 
-  image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
-  description: "", 
-  sets: 3,
-  reps: 12, 
-  is_weighted: false, 
-  muscle_id: 7,
-  posted_by: "ianmcm89"
 )
 
 User.second.reviews.create(

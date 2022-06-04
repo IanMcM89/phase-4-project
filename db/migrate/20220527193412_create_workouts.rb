@@ -8,6 +8,7 @@ class CreateWorkouts < ActiveRecord::Migration[6.1]
       t.integer :sets
       t.integer :reps
       t.integer :muscle_id
+      t.text :target_muscles, default: "[]"
       t.string :posted_by
 
       t.timestamps

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_225934) do
 
   create_table "muscles", force: :cascade do |t|
     t.string "group"
+    t.text "sub_groups", default: "[]"
     t.string "title"
     t.string "image_url"
     t.string "coords"
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_05_30_225934) do
     t.integer "sets"
     t.integer "reps"
     t.integer "muscle_id"
+    t.text "target_muscles", default: "[]"
     t.string "posted_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

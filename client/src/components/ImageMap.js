@@ -25,16 +25,10 @@ function ImageMap({ filterWorkouts }) {
       case "back_neck":
         bodyImg.src = src;
         break;
-      case "upper_arms_shoulders":
+      case "arms_shoulders":
         bodyImg.src = src;
         break;
-      case "forearms":
-        bodyImg.src = src;
-        break;
-      case "upper_legs_glutes":
-        bodyImg.src = src;
-        break;
-      case "lower_legs":
+      case "legs_glutes":
         bodyImg.src = src;
         break;
       default:

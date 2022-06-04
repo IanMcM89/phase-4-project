@@ -33,7 +33,7 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def workout_params
-    params.permit(:title, :image_url, :description, :is_weighted, :sets, :reps, :muscle_id, :posted_by)
+    params.permit(:title, :image_url, :description, :is_weighted, :sets, :reps, :muscle_id, :target_muscles, :posted_by)
   end
 
 end
