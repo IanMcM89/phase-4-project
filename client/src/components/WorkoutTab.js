@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-function Workout({ workout }) {
+function Workout({ workout, user, onDelete }) {
+  const [isHidden, setIsHidden] = useState(true);
+
+  useEffect(() => {
+    if (workout.posted_by === user.username) setIsHidden(!isHidden);
+  }, []);
+
   return (
     <Wrapper>
       <Section>
         <h2 style={{ color: "darkblue", margin: 0 }}>{workout.title}</h2>
-        <p style={{ color: "orange", margin: 0, fontWeight: "bold" }}>{workout.muscle.group}</p>
+        <p style={{ color: "orange", margin: 0, fontWeight: "bold" }}>{workout.target_muscles.join(', ')}</p>
       </Section>
       <Section>
         <p>Posted By: {workout.posted_by}</p>
       </Section>
+      {!isHidden ? (
+          <>
+            <button onClick={() => onDelete(workout)} style={{ border: "none" }}>🚮</button>
+          </>
+        ) : (
+          null
+        )
+      }
     </Wrapper>
   )
 }

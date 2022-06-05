@@ -5,7 +5,7 @@ import ImageMap from "../components/ImageMap";
 import WorkoutTab from "../components/WorkoutTab";
 import styled from "styled-components";
 
-function WorkoutList() {
+function WorkoutList({ user }) {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ function WorkoutList() {
             <WorkoutTab
               key={workout.id}
               workout={workout}
+              user={user}
               onDelete={handleDelete}
             />
           ))

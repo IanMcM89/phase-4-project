@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import WorkoutList from "../pages/WorkoutList";
-// import '../styles/App.css';
 import NewWorkout from "../pages/NewWorkout";
 import styled from "styled-components";
 
@@ -33,7 +32,7 @@ function App() {
             <h1>Workouts:</h1>
           </Route>
           <Route path="/">
-            <WorkoutList />
+            <WorkoutList user={user}/>
           </Route>
         </Switch>
       </Wrapper>
