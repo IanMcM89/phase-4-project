@@ -1,6 +1,6 @@
 import React from "react";
 
-function Workout({ workout, onDelete }) {
+function Workout({ workout }) {
   return (
     <>
       <h2>{workout.title}</h2>
@@ -16,7 +16,6 @@ function Workout({ workout, onDelete }) {
           <li key={review.id}>{review.comment} {review.rating}</li>
         )}
       </ul>
-      {/* <button onClick={() => onDelete(workout)} style={{ border: "none" }}>🚮</button> */}
     </>
   )
 }
