@@ -31,7 +31,7 @@ Muscle.create(
 Muscle.create(
   id: 2, 
   group: "abs",
-  sub_groups: "[Abdominals, Qbliques]",
+  sub_groups: ["Abdominals", "Qbliques"],
   title: "Abs",
   image_url: "/images/body/abs.png",
   coords: "161,328,116,284,116,210,160,189,204,209,435,250,523,250,524,276,435,276,435,250,204,209,204,283"
@@ -40,7 +40,7 @@ Muscle.create(
 Muscle.create(
   id: 3, 
   group: "back_neck",
-  sub_groups: "[Lats, Traps, Rhumboids, Erector Spinae]",
+  sub_groups: ["Lats", "Traps", "Rhumboids", "Erector Spinae"],
   title: "Back/Neck",
   image_url: "/images/body/back_neck.png",
   coords: "452,270,428,190,434,132,480,91,520,132,530,191,505,270,481,285,196,135,126,135,145,109,176,109,196,135"
@@ -49,7 +49,7 @@ Muscle.create(
 Muscle.create(
   id: 4, 
   group: "arms_shoulders",
-  sub_groups: "[Biceps, Triceps, Forearms, Deltoids]",
+  sub_groups: ["Biceps", "Triceps", "Forearms", "Deltoids"],
   title: "Arms/Shoulders",
   image_url: "/images/body/upper_arms_shoulders.png",
   coords: "45,305,80,154,101,130,128,142,75,305,247,305,364,303,401,150,424,132,445,132,389,303,568,301,512,133,539,133,555,156,594,301,247,305,192,139,223,132,237,153,272,305"
@@ -58,7 +58,7 @@ Muscle.create(
 Muscle.create(
   id: 5, 
   group: "legs_glutes",
-  sub_groups: "[Quads, Hamstrings, Glutes, Calves]",
+  sub_groups: ["Quads", "Hamstrings", "Glutes", "Calves"],
   title: "Legs/Glutes",
   image_url: "/images/body/legs_glutes.png",
   coords: "117,544,106,297,136,297,157,333,184,295,215,295,204,545,436,549,422,325,432,277,479,285,523,275,535,325,522,550"
@@ -73,7 +73,7 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 1,
-  target_muscles: "[Pecs]",
+  target_muscles: ["Pecs"],
   posted_by: "ianmcm89"
 )
 
@@ -86,7 +86,7 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 2,
-  target_muscles: "[Abdominals]",
+  target_muscles: ["Abdominals"],
   posted_by: "user1"
 )
 
@@ -99,7 +99,7 @@ Workout.create(
   reps: 12, 
   is_weighted: true, 
   muscle_id: 3,
-  target_muscles: "[Lats, Rhomboids]",
+  target_muscles: ["Lats", "Rhomboids"],
   posted_by: "ianmcm89"
 )
 
@@ -112,7 +112,7 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 4,
-  target_muscles: "[Triceps]",
+  target_muscles: ["Triceps"],
   posted_by: "ianmcm89"
 )
 
@@ -125,7 +125,7 @@ Workout.create(
   reps: 12, 
   is_weighted: true, 
   muscle_id: 5,
-  target_muscles: "[Glutes, Quads, Hamstrings]",
+  target_muscles: ["Glutes", "Quads", "Hamstrings"],
   posted_by: "user1"
 )
 
