@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { Button } from "../styles";
+import { Button, Overlay } from "../styles";
 import ReviewList from "../components/ReviewList";
 import styled from "styled-components";
 
 function Workout({ user }) {
   const [workout, setWorkout] = useState(null);
+  const [response, setResponse] = useState(null)
   const history = useHistory();
   const location = useLocation();
 
@@ -14,6 +15,8 @@ function Workout({ user }) {
     fetch(`/api${location.pathname}`).then((r) => {
       if (r.ok) {
         r.json().then(setWorkout);
+      } else {
+        setResponse(r);
       }
     });
   }, [location.pathname]);
@@ -44,17 +47,22 @@ function Workout({ user }) {
               null
             )}
           </Section>
-          <ReviewList workout={workout} />
+          <ReviewList workout={workout} user={user} />
         </Wrapper>
       ) : (
-        <NotFound>
-          <h1 style={{ fontSize: "4rem" }}>⚠️</h1>
-          <h2 style={{ fontSize: "3rem", margin: 0 }}>404</h2>
-          <h3>Not Found</h3>
-          <p>The requested resource could not be found! </p>
-          <Button as={Link} to="/">Home</Button>
-        </NotFound>
+        null
       )}
+      {response ? (
+        <Response>
+        <h1 style={{ fontSize: "4rem" }}>⚠️</h1>
+        <h2 style={{ fontSize: "3rem", margin: 0 }}>{response.status}</h2>
+        <h3>{response.statusText}</h3>
+        <Button as={Link} to="/">Home</Button>
+      </Response>
+      ) : (
+        null
+      )}
+      <Overlay variant="up"/>
     </>
   )
 }
@@ -75,12 +83,12 @@ const Section = styled.section`
   padding: 2%;
 `;
 
-const NotFound = styled.div`
+const Response = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px;
+  width: 400px;
   height: 90vh;
   margin: auto;
   padding: 2%;
