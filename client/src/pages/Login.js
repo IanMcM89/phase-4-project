@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 import { Header } from "../styles";
-import { Button, Logo } from "../styles";
+import { Button, Logo, Overlay } from "../styles";
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
@@ -40,6 +40,7 @@ function Login({ onLogin }) {
           )
         }
       </Wrapper>
+      <Overlay variant="down"/>
     </>
   )
 }
