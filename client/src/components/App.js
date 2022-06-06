@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import WorkoutList from "../pages/WorkoutList";
+import Workout from "../pages/Workout";
 import NewWorkout from "../pages/NewWorkout";
 import styled from "styled-components";
 
@@ -28,11 +29,11 @@ function App() {
           <Route path="/create">
             <NewWorkout user={user} />
           </Route>
-          <Route path="/workout/:id">
-            <h1>Workouts:</h1>
+          <Route path="/workouts/:id">
+            <Workout user={user}/>
           </Route>
           <Route path="/">
-            <WorkoutList user={user}/>
+            <WorkoutList/>
           </Route>
         </Switch>
       </Wrapper>
