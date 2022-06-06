@@ -2,7 +2,13 @@ class Api::ReviewsController < ApplicationController
 
     # GET /reviews
     def index
-      render json: Review.all
+      if params[:workout_id]
+        workout = Workout.find(params[:workout_id])
+        reviews = workout.reviews
+      else
+        reviews = Review.all
+      end
+      render json: reviews, include: :workout
     end
   
     # GET /reviews/:id
