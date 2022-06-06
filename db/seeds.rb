@@ -23,6 +23,7 @@ User.create(
 Muscle.create(
   id: 1, 
   group: "chest",
+  sub_groups: ["Pecs"],
   title: "Chest",
   image_url: "/images/body/chest.png",
   coords: "160,186,132,197,115,213,115,145,160,141,206,145,208,210,186,195"
