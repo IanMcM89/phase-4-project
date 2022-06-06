@@ -8,7 +8,7 @@ class Api::ReviewsController < ApplicationController
       else
         reviews = Review.all
       end
-      render json: reviews, include: :workout
+      render json: reviews, include: [:user, :workout]
     end
   
     # GET /reviews/:id
