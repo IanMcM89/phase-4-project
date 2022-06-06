@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../styles";
 import styled from "styled-components";
 
-function Review({ workout }) {
+function ReviewList({ workout }) {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -18,30 +18,37 @@ function Review({ workout }) {
   }, [workout.id]);
 
   return (
-    <Ul>
+    <Wrapper>
       {reviews.length > 0 ? (
         reviews.map(review => {
           return (
-            <>
-              <Li key={review.id}>
-                <h3 style={{ color: "darkblue", margin: 0 }}>{review.user.username}:</h3>
-                <p style={{ margin: "2px" }}>{review.comment}</p>
-                <p style={{ filter: "grayscale(50%)", margin: "2px" }}>⭐{review.rating}</p>
-              </Li>
-            </>
+            <Review key={review.id}>
+              <h3 style={{ color: "darkblue", margin: 0 }}>{review.user.username}:</h3>
+              <p style={{ margin: "2px" }}>{review.comment}</p>
+              <p style={{ filter: "grayscale(50%)", margin: "2px" }}>⭐{review.rating}</p>
+            </Review>
           )
         })
       ) : (
-        <>
-          <h2>No Reviews</h2>
-          <Button>Leave Review</Button>
-        </>
+        <h2>No Reviews</h2>
       )}
-    </Ul>
+      <Button style={{ margin: "4px auto 4px auto" }}>Leave Review</Button>
+    </Wrapper>
   )
 }
 
-const Li = styled.li`
+const Wrapper = styled.div`
+background-color: lightgray;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 30%;
+height: 100%;
+margin: 0;
+padding: 0;
+`;
+
+const Review = styled.div`
   background-color: white;
   box-shadow: 5px 5px #888888;
   display: flex;
@@ -52,15 +59,4 @@ const Li = styled.li`
   padding: 8px;
 `;
 
-const Ul = styled.ul`
-  background-color: lightgray;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-`;
-
-export default Review
+export default ReviewList
