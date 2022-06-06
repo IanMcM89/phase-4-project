@@ -130,26 +130,56 @@ Workout.create(
   posted_by: "user1"
 )
 
-User.second.reviews.create(
-  id: 1,
-  comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  rating: 3,
-  user_id: 2,
-  workout_id: 1
-)
+3.times do 
+  Review.create(
+    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    rating: 3,
+    user_id: 2,
+    workout_id: 1
+  )
+end
 
-Review.create(
-  id: 2,
-  comment: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  rating: 3,
-  user_id: 2,
-  workout_id: 2
-)
+3.times do 
+  Review.create(
+    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    rating: 3,
+    user_id: 1,
+    workout_id: 2
+  )
+end
 
-Review.create(
-  id: 3,
-  comment: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-  rating: 3,
-  user_id: 2,
-  workout_id: 3
-)
+3.times do
+  Review.create(
+    comment: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    rating: 3,
+    user_id: 2,
+    workout_id: 2
+  )
+end
+
+3.times do
+  Review.create(
+    comment: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    rating: 3,
+    user_id: 1,
+    workout_id: 3
+  )
+end
+
+3.times do
+  Review.create(
+    comment: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    rating: 3,
+    user_id: 2,
+    workout_id: 3
+  )
+end
+
+3.times do
+  Review.create(
+    comment: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    rating: 3,
+    user_id: 1,
+    workout_id: 1
+  )
+end
