@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
-function Workout({ workout, user, onDelete }) {
-  const [isHidden, setIsHidden] = useState(true);
-
-  useEffect(() => {
-    if (workout.posted_by === user.username) setIsHidden(!isHidden);
-  }, []);
+function WorkoutListItem({ workout }) {
+  const history = useHistory();
 
   return (
-    <Wrapper>
+    <Wrapper onClick={() => history.push(`/workouts/${workout.id}`)}>
       <Section>
         <h2 style={{ color: "darkblue", margin: 0 }}>{workout.title}</h2>
         <p style={{ color: "orange", margin: 0, fontWeight: "bold" }}>{workout.target_muscles.join(', ')}</p>
@@ -17,14 +14,6 @@ function Workout({ workout, user, onDelete }) {
       <Section>
         <p>Posted By: {workout.posted_by}</p>
       </Section>
-      {!isHidden ? (
-          <>
-            <button onClick={() => onDelete(workout)} style={{ border: "none" }}>🚮</button>
-          </>
-        ) : (
-          null
-        )
-      }
     </Wrapper>
   )
 }
@@ -49,4 +38,4 @@ const Section = styled.section`
 
 
 
-export default Workout
+export default WorkoutListItem

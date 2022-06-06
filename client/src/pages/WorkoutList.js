@@ -2,60 +2,42 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../styles";
 import ImageMap from "../components/ImageMap";
-import WorkoutTab from "../components/WorkoutTab";
+import WorkoutListItem from "../components/WorkoutListItem";
 import styled from "styled-components";
 
-function WorkoutList({ user }) {
+function WorkoutList() {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    fetch("/api/workouts")
-      .then((r) => r.json())
-      .then(setWorkouts)
+    filterWorkouts();
   }, []);
 
   const filterWorkouts = (group) => {
-    fetch("/api/workouts")
-    .then((r) => r.json())
-    .then((workouts) => {
-      group !== "default" ? (
-        setWorkouts(workouts.filter((workout) => workout.muscle.group === group))
-      ) : (
-        setWorkouts(workouts)
-      );
+    fetch("/api/workouts").then((r) => {
+      if (r.ok && group && group !== "default") {
+        r.json().then((workouts) => {
+          setWorkouts(workouts.filter((workout) => workout.muscle.group === group));
+        });
+      } else {
+        r.json().then(setWorkouts);
+      }
     });
   }
-
-  const handleDelete = (workout) => {
-    fetch(`/api/workouts/${workout.id}`, {
-      method: "DELETE"
-    }).then(setWorkouts(workouts.filter((i) => i.id !== workout.id)));
-  };
 
   return (
     <Wrapper>
       <ImageMap filterWorkouts={filterWorkouts} />
       <Section>
-        {/* <Link style={{ textDecoration: "none" }} to="/create">
-          <Button variant={"white"}>+</Button>
-        </Link> */}
         {workouts.length > 0 ? (
           workouts.map((workout) => (
-            <WorkoutTab
-              key={workout.id}
-              workout={workout}
-              user={user}
-              onDelete={handleDelete}
-            />
+            <WorkoutListItem key={workout.id} workout={workout} />
           ))
         ) : (
           <>
-            <h2>No workouts Found</h2>
-            <button as={Link} to="/create">
-              Create a New Workout
-            </button>
+            <h2>No workouts found</h2>
           </>
         )}
+        <Button as={Link} to="/create" variant={"white"}>+</Button>
       </Section>
     </Wrapper>
   )
