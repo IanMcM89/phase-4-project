@@ -21,8 +21,6 @@ function Button({ variant = "blue", ...props }) {
     Component = BlueButton;
   } else if (variant === "orange") {
     Component = OrangeButton;
-  } else if (variant === "white") {
-    Component = PostButton;
   }
 
   return <Component style={COLORS[variant]} {...props} />;
@@ -57,20 +55,6 @@ const OrangeButton = styled(ButtonBase)`
 
   &:hover {
     background-color: red;
-  }
-`;
-
-const PostButton = styled(ButtonBase)`
-  background-color: var(--main);
-  color: var(--accent);
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 2px 10px;
-  margin: 10px;
-
-  &:hover {
-    background-color: orange;
-    color: white;
   }
 `;
 
