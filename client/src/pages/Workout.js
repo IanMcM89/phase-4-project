@@ -29,8 +29,9 @@ function Workout({ user }) {
       {workout ? (
         <Wrapper>
           <Section>
-            <h2>{workout.title}</h2>
-            <h3>Muscle Group: {workout.muscle.group}</h3>
+            <h1 style={{ color: "darkblue", margin: 0 }}>{workout.title}</h1>
+            <h2 style={{ color: "orange", margin: 0, fontWeight: "bold" }}>{workout.muscle.group}</h2>
+            <h3>Target Muscles: {workout.target_muscles.join(', ')}</h3>
             <img src={workout.image_url} style={{ width: "200px" }} alt="" />
             <p>Description: {workout.description}</p>
             <span>Weighted: {workout.is_weighted ? 'Yes' : 'No'}</span>
@@ -71,6 +72,7 @@ const Section = styled.section`
   align-items: center;
   width: 70%;
   height: 100%;
+  padding: 2%;
 `;
 
 const NotFound = styled.div`
