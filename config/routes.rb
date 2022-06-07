@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :reviews, only: [:show, :index]
     end
     resources :muscles, only: [:index, :show]
-    resources :reviews, only: [:index, :show, :create]
+    resources :reviews
     post "/signup", to: "users#create"
     get "/me", to: "users#show"
     post "/login", to: "sessions#create"

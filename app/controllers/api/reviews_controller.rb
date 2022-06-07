@@ -24,6 +24,13 @@ class Api::ReviewsController < ApplicationController
       review = @current_user.reviews.create!(review_params)
       render json: review, status: :created
     end
+
+    # DELETE /reviews/:id
+    def destroy
+      review = find_review
+      review.destroy
+      head :no_content
+    end
   
     private
   

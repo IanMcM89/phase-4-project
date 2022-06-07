@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function Review({ review, user }) {
+function Review({ review, user, onDelete }) {
   return (
     <Wrapper>
       <h3 style={{ color: "orange", margin: 0 }}>{review.user.username}:</h3>
@@ -11,7 +11,7 @@ function Review({ review, user }) {
         {review.user.username === user.username ? (
           <>
             <Icon onClick={() => console.log("edit")}>✏️</Icon>
-            <Icon onClick={() => console.log("delete")}>🗑️</Icon>
+            <Icon onClick={() => onDelete(review.id)}>🗑️</Icon>
           </>
         ) : (
           null

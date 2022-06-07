@@ -17,12 +17,25 @@ function ReviewList({ workout, user }) {
     });
   }, [workout.id]);
 
+  const handleDelete = (id) => {
+    fetch(`/api/reviews/${id}`, {
+      method: "DELETE"
+    }).then(setReviews(reviews.filter((review) => {
+      return review.id !== id
+    })))
+  };
+
   return (
     <WrapperUl>
       <Ul>
         {reviews.length > 0 ? (
           reviews.map((review) => (
-            <Review key={review.id} review={review} user={user}/>
+            <Review 
+              key={review.id} 
+              review={review} 
+              user={user}
+              onDelete={handleDelete}
+            />
           ))
         ) : (
           <>
