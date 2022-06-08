@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 8px;
   margin: 8px 0;
+  animation: expand 0.4s ease forwards;
 `;
 
 const Alert = styled.span`
