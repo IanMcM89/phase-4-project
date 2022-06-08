@@ -73,7 +73,7 @@ const Wrapper = styled.li`
   height: auto;
   margin 1% auto 1% auto;
   padding: 8px;
-  animation: hoverOut 1.0s ease forwards;
+  animation: expand 0.4s ease forwards;
 `;
 
 const Section = styled.section`

@@ -71,7 +71,7 @@ function CommentList({ workout, user }) {
           <p style={{ color: "gray" }}>
             Commenting on {user.username === workout.posted_by ? "your own" : `${workout.posted_by}'s`} post...
           </p>
-          <Form onSubmit={handleSubmit} style={{ height: "60%" }}>
+          <Form onSubmit={handleSubmit} style={{ height: "60%", animation: "expand 0.8s ease forwards" }}>
             <FormField style={{ height: "inherit" }}>
               <Label htmlFor="message">Comment:</Label>
               <Textarea
