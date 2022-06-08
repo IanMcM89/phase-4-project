@@ -8,13 +8,33 @@ function Workout({ workout }) {
   return (
     <Wrapper onClick={() => history.push(`/workouts/${workout.id}`)}>
       <Section>
-        <h2 style={{ color: "darkblue", margin: 0 }}>{workout.title}</h2>
-        <p style={{ color: "orange", margin: 0, fontWeight: "bold" }}>{workout.target_muscles.join(', ')}</p>
+        <H2 style={{ color: "darkblue", margin: 0 }}>{workout.title}</H2>
+        <H4>{workout.target_muscles.join(', ')}</H4>
       </Section>
         <P>Posted By: {workout.posted_by}</P>
     </Wrapper>
   )
 }
+
+const H2 = styled.h2`
+  color: darkblue;
+  margin: 0;
+`;
+
+const H4 = styled.h3`
+  color: orange;
+  margin: 0;
+  font-wight: bold;
+  transition: 0.3s;
+`;
+
+const P = styled.p`
+  color: gray;
+  display: flex;
+  width: 35%;
+  margin: 0;
+  transition: 0.3s;
+`;
 
 const Wrapper = styled.div`
   background-color: white;
@@ -24,10 +44,14 @@ const Wrapper = styled.div`
   width: 96%;
   margin 1% auto 1% auto;
   padding: 8px;
-  animation: hoverOut 1.0s ease forwards;
+  transition: 0.3s;
+  animation: expand 0.4s ease forwards;
 
-  :hover {
-    animation: hoverIn 0.4s ease forwards;
+  &:hover {
+    background-color: orange;
+    ${H4}, ${P2} {
+      color: white
+    }
   }
 `;
 
@@ -36,13 +60,6 @@ const Section = styled.section`
   flex-direction: column;
   width: 65%;
   height: auto;
-`;
-
-const P = styled.p`
-  color: gray;
-  display: flex;
-  width: 35%;
-  margin: 0;
 `;
 
 export default Workout;
