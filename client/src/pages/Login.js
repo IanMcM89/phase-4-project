@@ -10,37 +10,39 @@ function Login({ onLogin }) {
 
   return (
     <>
-      <Header/>
+      <Header />
       <Wrapper>
-        <Logo>
-          <img src="/images/logo_1.png" style={{width: "100px"}} alt="App Logo"/>
-          <Title>Fitness App</Title>
-        </Logo>
-        {
-          showLogin ? (
-            <>
-              <LoginForm onLogin={onLogin} />
-              <p>
-                Don't have an account? &nbsp;
-                <Button variant="blue" onClick={() => setShowLogin(false)}>
-                  Sign Up
-                </Button>
-              </p>
-            </>
-          ) : (
-            <>
-              <SignUpForm onLogin={onLogin} />
-              <p>
-                Already have an account? &nbsp;
-                <Button variant="blue" onClick={() => setShowLogin(true)}>
-                  Login
-                </Button>
-              </p>
-            </>
-          )
-        }
+        <Section>
+          <Logo>
+            <img src="/images/logo_1.png" style={{ width: "100px" }} alt="App Logo" />
+            <Title>Fitness App</Title>
+          </Logo>
+          {
+            showLogin ? (
+              <>
+                <LoginForm onLogin={onLogin} />
+                <p>
+                  Don't have an account? &nbsp;
+                  <Button variant="blue" onClick={() => setShowLogin(false)}>
+                    Sign Up
+                  </Button>
+                </p>
+              </>
+            ) : (
+              <>
+                <SignUpForm onLogin={onLogin} />
+                <p>
+                  Already have an account? &nbsp;
+                  <Button variant="blue" onClick={() => setShowLogin(true)}>
+                    Login
+                  </Button>
+                </p>
+              </>
+            )
+          }
+        </Section>
       </Wrapper>
-      <Overlay variant="down"/>
+      <Overlay variant="down" />
     </>
   )
 }
@@ -51,13 +53,23 @@ const Title = styled.h1`
   color: royalblue;
 `;
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  margin: 0;
+  background: url("/images/background.png") repeat;
+  background-size: 400px;
+`;
+
+const Section = styled.section`
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 500px;
-  height: 90vh;
+  height: 100%;
   margin: auto;
   padding: 2%;
 `;
