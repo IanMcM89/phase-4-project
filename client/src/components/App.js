@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import WorkoutList from "../pages/WorkoutList";
-import Workout from "../pages/Workout";
+import WorkoutPage from "../pages/WorkoutPage";
 import NewWorkout from "../pages/NewWorkout";
 import styled from "styled-components";
 
@@ -30,7 +30,7 @@ function App() {
             <NewWorkout user={user} />
           </Route>
           <Route path="/workouts/:id">
-            <Workout user={user}/>
+            <WorkoutPage user={user}/>
           </Route>
           <Route path="/">
             <WorkoutList/>
@@ -47,7 +47,7 @@ const Wrapper = styled.main`
   align-items: center;
   width: 100vw;
   height: 90vh;
-  margin: auto;
+  margin: 0;
   overflow: hidden;
 `;
 

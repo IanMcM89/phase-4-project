@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, WrapperUl, Ul, Nav, Overlay } from "../styles";
 import ImageMap from "../components/ImageMap";
-import WorkoutLi from "../components/WorkoutLi";
+import Workout from "../components/Workout";
 import styled from "styled-components";
 
 function WorkoutList() {
@@ -33,7 +33,7 @@ function WorkoutList() {
         <Ul>
           {workouts.length > 0 ? (
             workouts.map((workout) => (
-              <WorkoutLi key={workout.id} workout={workout} />
+              <Workout key={workout.id} workout={workout} />
             ))
           ) : (
             <h2 style={{color: "gray"}}>No workouts found</h2>
@@ -52,6 +52,8 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  margin: 0;
+  overflow: hidden;
 `;
 
 export default WorkoutList

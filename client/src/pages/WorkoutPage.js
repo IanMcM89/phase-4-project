@@ -5,7 +5,7 @@ import { Button, Overlay } from "../styles";
 import CommentList from "../components/CommentList";
 import styled from "styled-components";
 
-function Workout({ user }) {
+function WorkoutPage({ user }) {
   const [workout, setWorkout] = useState(null);
   const [response, setResponse] = useState(null)
   const history = useHistory();
@@ -97,4 +97,4 @@ const Response = styled.div`
   padding: 2%;
 `;
 
-export default Workout;
+export default WorkoutPage;
