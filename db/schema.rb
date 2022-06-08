@@ -15,21 +15,20 @@ ActiveRecord::Schema.define(version: 2022_05_30_225934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.string "message"
+    t.integer "user_id"
+    t.integer "workout_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "muscles", force: :cascade do |t|
     t.string "group"
     t.text "sub_groups", default: "[]"
     t.string "title"
     t.string "image_url"
     t.string "coords"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "comment"
-    t.integer "rating"
-    t.integer "user_id"
-    t.integer "workout_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

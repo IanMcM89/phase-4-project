@@ -131,54 +131,48 @@ Workout.create(
 )
 
 3.times do 
-  Review.create(
-    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    rating: 3,
+  Comment.create(
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     user_id: 2,
     workout_id: 1
   )
 end
 
 3.times do 
-  Review.create(
-    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    rating: 3,
+  Comment.create(
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     user_id: 1,
     workout_id: 2
   )
 end
 
 3.times do
-  Review.create(
-    comment: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    rating: 3,
+  Comment.create(
+    message: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     user_id: 2,
     workout_id: 2
   )
 end
 
 3.times do
-  Review.create(
-    comment: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    rating: 3,
+  Comment.create(
+    message: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     user_id: 1,
     workout_id: 3
   )
 end
 
 3.times do
-  Review.create(
-    comment: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    rating: 3,
+  Comment.create(
+    message: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     user_id: 2,
     workout_id: 3
   )
 end
 
 3.times do
-  Review.create(
-    comment: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    rating: 3,
+  Comment.create(
+    message: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     user_id: 1,
     workout_id: 1
   )

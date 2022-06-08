@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :reviews
-  has_many :workouts, through: :reviews
+  has_many :comments
+  has_many :workouts, through: :comments
   
   has_secure_password
 

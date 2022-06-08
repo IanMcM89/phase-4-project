@@ -2,7 +2,7 @@ class Api::WorkoutsController < ApplicationController
 
   # GET /workouts
   def index
-    render json: Workout.all, include: [:muscle, :reviews]
+    render json: Workout.all, include: [:muscle, :comments]
   end
 
   # GET /workouts/:id
