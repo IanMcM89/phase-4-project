@@ -1,3 +1,3 @@
 class WorkoutCommentSerializer < ActiveModel::Serializer
-  attributes :id, :message
+  attributes :message
 end
