@@ -93,7 +93,7 @@ const Wrapper = styled.div`
 
 const Figure = styled.figure`
   margin: 0;
-  animation: appear 1.4s ease forwards;
+  animation: appear 1.8s ease forwards;
 `;
 
 const Img = styled.img`

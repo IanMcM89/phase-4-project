@@ -74,8 +74,7 @@ const Ul = styled.ul`
   margin: 0 0 1% 0;
   padding: 0;
   overflow-y: auto;
-  transform: translatey(-1000px);
-  animation: slideDown .4s ease-in-out forwards .4s;
+  animation: appear 1.8s ease forwards;
 `;
 
 const Nav = styled.nav`

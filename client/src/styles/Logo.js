@@ -7,6 +7,11 @@ const Logo = styled.div`
   align-items: center;
   height: 20%;
   margin: 8px 0 16px;
+  animation: hoverOut 0.4s ease forwards;
+
+  :hover {
+    animation: hoverIn 0.4s ease forwards;
+  }
 `;
 
 export default Logo;

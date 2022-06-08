@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   width: 96%;
   margin 1% auto 1% auto;
   padding: 8px;
-  animation: hoverOut 0.4s ease forwards;
+  animation: hoverOut 1.0s ease forwards;
 
   :hover {
     animation: hoverIn 0.4s ease forwards;

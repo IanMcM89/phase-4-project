@@ -83,7 +83,7 @@ const Section = styled.section`
   width: 70%;
   height: 100%;
   padding: 2%;
-  animation: appear 1.4s ease forwards;
+  animation: appear 1.8s ease forwards;
 `;
 
 const Response = styled.div`
