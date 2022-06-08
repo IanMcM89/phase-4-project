@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Textarea } from "../styles";
 import styled from "styled-components";
 
 function Comment({ comment, user, onDelete, onUpdate }) {
@@ -42,7 +43,7 @@ function Comment({ comment, user, onDelete, onUpdate }) {
       {!isEditable ? (
         <p style={{ margin: "2px" }}>{comment.message}</p>
       ) : (
-        <TextArea
+        <Textarea
           type="textarea"
           name="message"
           placeholder={comment.message}
@@ -79,15 +80,6 @@ const Section = styled.section`
   justify-content: flex-end;
 `;
 
-const TextArea = styled.textarea`
-  display: flex;
-  background-color: lightgray;
-  border; solid black 2px;
-  font-size: 16px;
-  width: 100%;
-  margin: 0;
-`;
-
 const Date = styled.span`
   color: gray;
   display: flex;
@@ -99,6 +91,11 @@ const Icon = styled.button`
   cursor: pointer;
   border: none;
   filter: brightness(1.5) grayscale(100%);
+  animation: hoverOut 0.4s ease forwards;
+
+  :hover {
+    animation: hoverIn 0.4s ease forwards;
+  }
 `;
 
 export default Comment;

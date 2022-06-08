@@ -38,6 +38,11 @@ const ButtonBase = styled.button`
   align-items: center;
   margin: auto 0 auto 0;
   transition: 0.3s;
+  animation: hoverOut 0.4s ease forwards;
+
+  :hover {
+    animation: hoverIn 0.4s ease forwards;
+  }
 `;
 
 const BlueButton = styled(ButtonBase)`
@@ -54,7 +59,7 @@ const OrangeButton = styled(ButtonBase)`
   color: var(--accent);
 
   &:hover {
-    background-color: red;
+    background-color: orangered;
   }
 `;
 

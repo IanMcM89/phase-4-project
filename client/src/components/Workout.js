@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
 
-function WorkoutListItem({ workout }) {
+function Workout({ workout }) {
   const history = useHistory();
 
   return (
@@ -11,9 +11,7 @@ function WorkoutListItem({ workout }) {
         <h2 style={{ color: "darkblue", margin: 0 }}>{workout.title}</h2>
         <p style={{ color: "orange", margin: 0, fontWeight: "bold" }}>{workout.target_muscles.join(', ')}</p>
       </Section>
-      <Section>
-        <p>Posted By: {workout.posted_by}</p>
-      </Section>
+        <P>Posted By: {workout.posted_by}</P>
     </Wrapper>
   )
 }
@@ -26,15 +24,25 @@ const Wrapper = styled.div`
   width: 96%;
   margin 1% auto 1% auto;
   padding: 8px;
+  animation: hoverOut 0.4s ease forwards;
+
+  :hover {
+    animation: hoverIn 0.4s ease forwards;
+  }
 `;
 
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 65%;
   height: auto;
 `;
 
+const P = styled.p`
+  color: gray;
+  display: flex;
+  width: 35%;
+  margin: 0;
+`;
 
-
-export default WorkoutListItem
+export default Workout;

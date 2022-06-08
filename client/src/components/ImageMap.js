@@ -8,9 +8,9 @@ function ImageMap({ filterWorkouts }) {
 
   useEffect(() => {
     fetch("/api/muscles")
-    .then((r) => r.json())
-    .then(setMuscles)
-    .then(setBodyImg(document.getElementById("default")))
+      .then((r) => r.json())
+      .then(setMuscles)
+      .then(setBodyImg(document.getElementById("default")))
   }, []);
 
   const handleMouseOver = (e) => {
@@ -46,39 +46,41 @@ function ImageMap({ filterWorkouts }) {
   }
 
   return (
-    <Figure>
-      <Img
-        id="default"
-        src={bodyImgSrc}
-        useMap="#body_image_map"
-        alt="Muscle Man"
-        onClick={(e) => handleClick(e)}
-      />
-      <map name="body_image_map" id="body_image_map">
-        <area
-          shape="rect"
-          coords="638,638,640,640"
-          alt="Image Map"
+    <Wrapper>
+      <Figure>
+        <Img
+          id="default"
+          src={bodyImgSrc}
+          useMap="#body_image_map"
+          alt="Muscle Man"
+          onClick={(e) => handleClick(e)}
         />
-        {muscles.map((muscle) =>
+        <map name="body_image_map" id="body_image_map">
           <area
-            key={muscle.id}
-            id={muscle.group}
-            title={muscle.title}
-            alt={muscle.title}
-            shape="poly"
-            coords={muscle.coords}
-            onClick={(e) => handleClick(e)}
-            onMouseOver={(e) => handleMouseOver(e)}
-            onMouseOut={handleMouseOut}
+            shape="rect"
+            coords="638,638,640,640"
+            alt="Image Map"
           />
-        )}
-      </map>
-    </Figure>
+          {muscles.map((muscle) =>
+            <area
+              key={muscle.id}
+              id={muscle.group}
+              title={muscle.title}
+              alt={muscle.title}
+              shape="poly"
+              coords={muscle.coords}
+              onClick={(e) => handleClick(e)}
+              onMouseOver={(e) => handleMouseOver(e)}
+              onMouseOut={handleMouseOut}
+            />
+          )}
+        </map>
+      </Figure>
+    </Wrapper>
   );
 }
 
-const Figure = styled.figure`
+const Wrapper = styled.div`
   background-color: white;
   display: flex;
   justify-content: center;
@@ -86,6 +88,12 @@ const Figure = styled.figure`
   width: 60%;
   height: 100%;
   margin: 0;
+  overflow: hidden;
+`;
+
+const Figure = styled.figure`
+  margin: 0;
+  animation: appear 1.4s ease forwards;
 `;
 
 const Img = styled.img`

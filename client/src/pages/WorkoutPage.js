@@ -29,9 +29,8 @@ function WorkoutPage({ user }) {
 
   return (
     <>
-      <Wrapper>
-       {workout ? (
-        <>
+      {workout ? (
+        <Wrapper>
           <Section>
             <h1 style={{ color: "darkblue", margin: 0 }}>{workout.title}</h1>
             <h2 style={{ color: "orange", margin: 0, fontWeight: "bold" }}>{workout.muscle.group}</h2>
@@ -50,11 +49,10 @@ function WorkoutPage({ user }) {
             )}
           </Section>
           <CommentList workout={workout} user={user} />
-        </>
-        ) : (
+        </Wrapper>
+      ) : (
         null
-        )}
-      </Wrapper>
+      )}
       {response ? (
         <Response>
           <h1 style={{ fontSize: "4rem" }}>⚠️</h1>
@@ -71,19 +69,21 @@ function WorkoutPage({ user }) {
 }
 
 const Wrapper = styled.div`
-  background-color: white;
+  background-color: lightgray;
   display: flex;
   width: 100%;
   height: 100%;
 `;
 
 const Section = styled.section`
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 70%;
   height: 100%;
   padding: 2%;
+  animation: appear 1.4s ease forwards;
 `;
 
 const Response = styled.div`
