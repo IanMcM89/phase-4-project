@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, WrapperUl, Ul, Nav, Overlay } from "../styles";
+import { Button, Overlay } from "../styles";
 import ImageMap from "../components/ImageMap";
 import Workout from "../components/Workout";
 import styled from "styled-components";
@@ -29,7 +29,7 @@ function WorkoutList() {
   return (
     <Wrapper>
       <ImageMap filterWorkouts={filterWorkouts} />
-      <WrapperUl>
+      <Section>
         <Ul>
           {workouts.length > 0 ? (
             workouts.map((workout) => (
@@ -42,7 +42,7 @@ function WorkoutList() {
         <Nav>
           <Button as={Link} to="/create" variant="orange">Create Workout</Button>
         </Nav>
-      </WrapperUl>
+      </Section>
       <Overlay variant="right"/>
     </Wrapper>
   )
@@ -54,6 +54,37 @@ const Wrapper = styled.div`
   height: 100%;
   margin: 0;
   overflow: hidden;
+`;
+
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  margin: 0;
+`;
+
+const Ul = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  margin: 0 0 1% 0;
+  padding: 0;
+  overflow-y: auto;
+  transform: translatey(-1000px);
+  animation: slideDown .4s ease-in-out forwards .4s;
+`;
+
+const Nav = styled.nav`
+  background-color: darkblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
 `;
 
 export default WorkoutList
