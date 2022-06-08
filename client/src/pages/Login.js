@@ -3,24 +3,25 @@ import styled from "styled-components";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 import { Header } from "../styles";
-import { Button, Logo, Overlay } from "../styles";
+import { Button, Logo, Overlay, Error, FormField } from "../styles";
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
+  const [errors, setErrors] = useState([]);
 
   return (
     <>
       <Header />
       <Wrapper>
         <Section>
-          <Logo>
+          <Logo style={{ animation: "none" }}>
             <img src="/images/logo_1.png" style={{ width: "100px" }} alt="App Logo" />
             <Title>Fitness App</Title>
           </Logo>
           {
             showLogin ? (
               <>
-                <LoginForm onLogin={onLogin} />
+                <LoginForm onLogin={onLogin} setErrors={setErrors}/>
                 <p>
                   Don't have an account? &nbsp;
                   <Button variant="blue" onClick={() => setShowLogin(false)}>
@@ -30,7 +31,7 @@ function Login({ onLogin }) {
               </>
             ) : (
               <>
-                <SignUpForm onLogin={onLogin} />
+                <SignUpForm onLogin={onLogin} setErrors={setErrors}/>
                 <p>
                   Already have an account? &nbsp;
                   <Button variant="blue" onClick={() => setShowLogin(true)}>
@@ -40,6 +41,11 @@ function Login({ onLogin }) {
               </>
             )
           }
+          <FormField>
+            {errors.map((error) =>
+              <Error key={error}>{error}</Error>
+            )}
+          </FormField>
         </Section>
       </Wrapper>
       <Overlay variant="down" />

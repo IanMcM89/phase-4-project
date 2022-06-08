@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { Button, Error, Input, Form, FormField, Label } from "../styles";
+import React, { useState, useEffect } from "react";
+import { Button, Input, Form, FormField, Label } from "../styles";
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, setErrors }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setErrors([]);
+  }, [setErrors]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -54,11 +57,6 @@ function LoginForm({ onLogin }) {
         <Button type="submit">
           {loading ? "Loading..." : "Login"}
         </Button>
-      </FormField>
-      <FormField>
-        {errors.map((error) =>
-          <Error key={error}>{error}</Error>
-        )}
       </FormField>
     </Form>
   )
