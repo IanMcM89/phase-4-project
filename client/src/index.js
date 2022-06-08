@@ -18,8 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: url("/images/background.png") repeat;
-    background-size: 400px;
+    background-color: lightgray;
     font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     overflow: hidden;
   }
