@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, WrapperUl, Ul, Nav, Overlay } from "../styles";
 import ImageMap from "../components/ImageMap";
-import WorkoutListItem from "../components/WorkoutListItem";
+import WorkoutLi from "../components/WorkoutLi";
 import styled from "styled-components";
 
 function WorkoutList() {
@@ -16,7 +16,9 @@ function WorkoutList() {
     fetch("/api/workouts").then((r) => {
       if (r.ok && group && group !== "default") {
         r.json().then((workouts) => {
-          setWorkouts(workouts.filter((workout) => workout.muscle.group === group));
+          setWorkouts(workouts.filter((workout) => (
+            workout.muscle.group === group
+          )));
         });
       } else {
         r.json().then(setWorkouts);
@@ -31,12 +33,10 @@ function WorkoutList() {
         <Ul>
           {workouts.length > 0 ? (
             workouts.map((workout) => (
-              <WorkoutListItem key={workout.id} workout={workout} />
+              <WorkoutLi key={workout.id} workout={workout} />
             ))
           ) : (
-            <>
-              <h2>No workouts found</h2>
-            </>
+            <h2 style={{color: "gray"}}>No workouts found</h2>
           )}
         </Ul>
         <Nav>

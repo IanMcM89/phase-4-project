@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Button, Overlay } from "../styles";
-import ReviewList from "../components/ReviewList";
+import CommentList from "../components/CommentList";
 import styled from "styled-components";
 
 function Workout({ user }) {
@@ -29,8 +29,9 @@ function Workout({ user }) {
 
   return (
     <>
-      {workout ? (
-        <Wrapper>
+      <Wrapper>
+       {workout ? (
+        <>
           <Section>
             <h1 style={{ color: "darkblue", margin: 0 }}>{workout.title}</h1>
             <h2 style={{ color: "orange", margin: 0, fontWeight: "bold" }}>{workout.muscle.group}</h2>
@@ -41,40 +42,42 @@ function Workout({ user }) {
             <p>Sets: {workout.sets}</p>
             <p>Reps: {workout.reps}</p>
             <p>Posted By: {workout.posted_by}</p>
+            <p>{workout.created_at}</p>
             {workout.posted_by === user.username ? (
               <Button onClick={() => handleDelete()} style={{ border: "none", fontSize: "2rem" }}>🚮</Button>
             ) : (
               null
             )}
           </Section>
-          <ReviewList workout={workout} user={user} />
-        </Wrapper>
-      ) : (
+          <CommentList workout={workout} user={user} />
+        </>
+        ) : (
         null
-      )}
+        )}
+      </Wrapper>
       {response ? (
         <Response>
-        <h1 style={{ fontSize: "4rem" }}>⚠️</h1>
-        <h2 style={{ fontSize: "3rem", margin: 0 }}>{response.status}</h2>
-        <h3>{response.statusText}</h3>
-        <Button as={Link} to="/">Home</Button>
-      </Response>
+          <h1 style={{ fontSize: "4rem" }}>⚠️</h1>
+          <h2 style={{ fontSize: "3rem", margin: 0 }}>{response.status}</h2>
+          <h3>{response.statusText}</h3>
+          <Button as={Link} to="/">Home</Button>
+        </Response>
       ) : (
         null
       )}
-      <Overlay variant="up"/>
+      <Overlay variant="up" />
     </>
   )
 }
 
 const Wrapper = styled.div`
+  background-color: white;
   display: flex;
   width: 100%;
   height: 100%;
 `;
 
 const Section = styled.section`
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
