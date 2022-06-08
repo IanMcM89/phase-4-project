@@ -21,6 +21,7 @@ const Wrapper = styled.div`
 `;
 
 const Alert = styled.span`
+  background-color: white;
   height: 30px;
   width: 30px;
   border-radius: 50%;
