@@ -72,10 +72,10 @@ const GlobalStyle = createGlobalStyle`
 
   @keyframes expand {
     0% {
-      transform: translateX(1400px) scale(.2);
+      transform: scale(.2);
     }
     100% {
-      transform: translateX(0px) scale(1);
+      transform: scale(1);
     }
   }
 
