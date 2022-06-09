@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 
   &:hover {
     background-color: orange;
-    ${H4}, ${P2} {
+    ${H4}, ${P} {
       color: white
     }
   }
