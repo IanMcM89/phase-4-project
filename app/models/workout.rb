@@ -8,5 +8,4 @@ class Workout < ApplicationRecord
   validates :title, :image_url, :target_muscles, presence: true
   validates :description, length: { maximum: 500,
   too_long: "500 characters maximum" }
-  validates :reps, :sets, numericality: { only_integer: true }
 end
