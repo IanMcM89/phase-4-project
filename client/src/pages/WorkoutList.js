@@ -49,6 +49,7 @@ function WorkoutList() {
 }
 
 const Wrapper = styled.div`
+  background-color: lightgray;
   display: flex;
   width: 100%;
   height: 100%;
