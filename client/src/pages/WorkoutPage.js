@@ -63,7 +63,7 @@ function WorkoutPage({ user }) {
       ) : (
         null
       )}
-      <Overlay variant="up" />
+      <Overlay variant="left" />
     </>
   )
 }
@@ -83,7 +83,10 @@ const Section = styled.section`
   width: 70%;
   height: 100%;
   padding: 2%;
-  animation: appear 1.8s ease forwards;
+
+  h1, h2, h3, img, p, span {
+    animation: appear 1.8s ease forwards;
+  }
 `;
 
 const Response = styled.div`
