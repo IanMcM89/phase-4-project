@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { Button, Input, Textarea, FormField, Label, Error, Overlay } from "../styles";
 import styled from "styled-components";
 
 function NewWorkout({ user }) {
   const history = useHistory();
+  const [muscles, setMuscles] = useState([]);
+  const [selectedMuscle, setSelectedMuscle] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
@@ -18,6 +20,31 @@ function NewWorkout({ user }) {
     target_muscles: [],
     posted_by: user.username
   });
+
+  useEffect(() => {
+    fetch("/api/muscles")
+      .then((r) => r.json())
+      .then((muscles) => {
+        setMuscles(muscles);
+        setSelectedMuscle(muscles[0]);
+      })
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSelector = (e) => {
+    const target_muscle = muscles.find((muscle) => muscle.id === parseInt(e.target.value));
+    setSelectedMuscle(target_muscle);
+    setFormData({ ...formData, [e.target.id]: parseInt(e.target.value) });
+  }
+
+  const handleCheckbox = (e) => {
+    const muscleArray = formData.target_muscles;
+    muscleArray.push(e.target.value)
+    setFormData({ ...formData, [e.target.name]: muscleArray });
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -38,9 +65,7 @@ function NewWorkout({ user }) {
     });
   }
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+  console.log(formData)
 
   return (
     <>
@@ -78,6 +103,30 @@ function NewWorkout({ user }) {
           </Section>
           <Section>
             <FormField>
+              <Label htmlFor="muscle_id">Muscle Group</Label>
+              <select id="muscle_id" onChange={(e) => handleSelector(e)}>
+                {muscles.map(muscle => (
+                  <option key={muscle.id} value={muscle.id}>
+                    {muscle.title}
+                  </option>
+                ))}
+              </select>
+            </FormField>
+            <FormField>
+              <Label>Target Muscles</Label>
+              {selectedMuscle ? (selectedMuscle.sub_groups.map(group => (
+                <Input
+                  key={group}
+                  type="checkbox"
+                  name="target_muscles"
+                  value={group}
+                  onChange={(e) => handleCheckbox(e)}
+                />
+              ))) : (
+                null
+              )}
+            </FormField>
+            <FormField>
               <Label htmlFor="is_weighted">Weighted</Label>
               <Input
                 type="checkbox"
@@ -94,7 +143,7 @@ function NewWorkout({ user }) {
               <Label htmlFor="sets" style={{ display: "flex", justifyContent: "space-between" }}>
                 Sets
                 {
-                  <Output id="amount" for="sets">
+                  <Output id="amount" htmlFor="sets">
                     {formData.sets}
                   </Output>
                 }
@@ -112,7 +161,7 @@ function NewWorkout({ user }) {
               <Label htmlFor="sets" style={{ display: "flex", justifyContent: "space-between" }}>
                 Sets
                 {
-                  <Output id="amount" for="reps">
+                  <Output id="amount" htmlFor="reps">
                     {formData.reps}
                   </Output>
                 }
