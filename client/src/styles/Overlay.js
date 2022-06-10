@@ -24,19 +24,19 @@ const OverlayBase = styled.div`
 `;
 
 const OverlayRight = styled(OverlayBase)`
-  animation: swoopRight .15s ease-in-out forwards .15s;
+  animation: swoopRight 0.3s ease-in-out forwards .15s;
 `;
 
 const OverlayLeft = styled(OverlayBase)`
-  animation: swoopLeft .15s ease-in-out forwards .15s;
+  animation: swoopLeft 0.3s ease-in-out forwards .15s;
 `;
 
 const OverlayUp = styled(OverlayBase)`
-  animation: swoopUp .15s ease-in-out forwards .15s;
+  animation: swoopUp 0.3s ease-in-out forwards .15s;
 `;
 
 const OverlayDown = styled(OverlayBase)`
-  animation: swoopDown .15s ease-in-out forwards .15s;
+  animation: swoopDown 0.3s ease-in-out forwards .15s;
 `;  
 
 export default Overlay;
