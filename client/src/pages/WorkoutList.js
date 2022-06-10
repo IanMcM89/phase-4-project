@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, Overlay } from "../styles";
 import ImageMap from "../components/ImageMap";
-import Workout from "../components/Workout";
+import WorkoutSpan from "../components/WorkoutSpan";
 import styled from "styled-components";
 
 function WorkoutList({ muscles }) {
@@ -36,7 +36,7 @@ function WorkoutList({ muscles }) {
         <Ul>
           {workouts.length > 0 ? (
             workouts.map((workout) => (
-              <Workout key={workout.id} workout={workout} />
+              <WorkoutSpan key={workout.id} workout={workout} />
             ))
           ) : (
             <h2 style={{color: "gray"}}>No workouts found</h2>
