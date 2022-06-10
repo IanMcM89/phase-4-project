@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, Overlay } from "../styles";
-import ImageMap from "../components/ImageMap";
+import BodyMap from "../components/BodyMap";
 import WorkoutSpan from "../components/WorkoutSpan";
 import styled from "styled-components";
 
@@ -28,7 +28,7 @@ function WorkoutList({ muscles }) {
 
   return (
     <Wrapper>
-      <ImageMap 
+      <BodyMap 
         filterWorkouts={filterWorkouts} 
         muscles={muscles}
       />
