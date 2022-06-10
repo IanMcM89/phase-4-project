@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Textarea } from "../styles";
+import { Textarea, Icon } from "../styles";
 import styled from "styled-components";
 
 function Comment({ comment, user, onDelete, onUpdate }) {
@@ -41,7 +41,7 @@ function Comment({ comment, user, onDelete, onUpdate }) {
         <Date>Posted: {comment.created_at}</Date>
       </Section>
       {!isEditable ? (
-        <p style={{ margin: "2px" }}>{comment.message}</p>
+        <Message>{comment.message}</Message>
       ) : (
         <Textarea
           type="textarea"
@@ -81,22 +81,17 @@ const Section = styled.section`
   justify-content: flex-end;
 `;
 
+const Message = styled.p`
+  font-size: 14px;
+  font-family: cursive;
+  margin: 2px;
+`;
+
 const Date = styled.span`
   color: gray;
   display: flex;
   justify-content: flex-end;
   width: 100%;
-`;
-
-const Icon = styled.button`
-  cursor: pointer;
-  border: none;
-  filter: brightness(1.5) grayscale(100%);
-  animation: hoverOut 0.4s ease forwards;
-
-  :hover {
-    animation: hoverIn 0.4s ease forwards;
-  }
 `;
 
 export default Comment;

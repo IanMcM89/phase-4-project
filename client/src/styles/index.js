@@ -8,6 +8,7 @@ import Textarea from "./Textarea";
 import Label from "./Label";
 import Error from "./Error";
 import Button from "./Button";
+import Icon from "./Icon";
 import Overlay from "./Overlay";
 
-export { Header, Logo, Title, Form, FormField, Input, Textarea, Label, Error, Button, Overlay };
+export { Header, Logo, Title, Form, FormField, Input, Textarea, Label, Error, Button, Icon, Overlay };
