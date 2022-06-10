@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-function ImageMap({ filterWorkouts }) {
+function ImageMap({ filterWorkouts, muscles }) {
   const [bodyImg, setBodyImg] = useState(null);
-  const [bodyImgSrc, setBodyImgSrc] = useState("/images/body/default.png");
-  const [muscles, setMuscles] = useState([]);
+  const [source, setSource] = useState("/images/body/default.png");
 
   useEffect(() => {
-    fetch("/api/muscles")
-      .then((r) => r.json())
-      .then(setMuscles)
-      .then(setBodyImg(document.getElementById("default")))
+    setBodyImg(document.getElementById("default"))
   }, []);
 
   const handleMouseOver = (e) => {
@@ -32,16 +28,16 @@ function ImageMap({ filterWorkouts }) {
         bodyImg.src = src;
         break;
       default:
-        bodyImg.src = bodyImgSrc;
+        bodyImg.src = source;
     }
   };
 
   const handleMouseOut = () => {
-    bodyImg.src = bodyImgSrc;
+    bodyImg.src = source;
   };
 
   const handleClick = (e) => {
-    setBodyImgSrc(`/images/body/${e.target.id}.png`);
+    setSource(`/images/body/${e.target.id}.png`);
     filterWorkouts(e.target.id);
   }
 
@@ -50,10 +46,10 @@ function ImageMap({ filterWorkouts }) {
       <Figure>
         <Img
           id="default"
-          src={bodyImgSrc}
+          src={source}
           useMap="#body_image_map"
           alt="Muscle Man"
-          onClick={(e) => handleClick(e)}
+          onClick={handleClick}
         />
         <map name="body_image_map" id="body_image_map">
           <area
@@ -69,8 +65,8 @@ function ImageMap({ filterWorkouts }) {
               alt={muscle.title}
               shape="poly"
               coords={muscle.coords}
-              onClick={(e) => handleClick(e)}
-              onMouseOver={(e) => handleMouseOver(e)}
+              onClick={handleClick}
+              onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
             />
           )}

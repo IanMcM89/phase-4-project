@@ -5,7 +5,7 @@ import ImageMap from "../components/ImageMap";
 import Workout from "../components/Workout";
 import styled from "styled-components";
 
-function WorkoutList() {
+function WorkoutList({ muscles }) {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
@@ -28,7 +28,10 @@ function WorkoutList() {
 
   return (
     <Wrapper>
-      <ImageMap filterWorkouts={filterWorkouts} />
+      <ImageMap 
+        filterWorkouts={filterWorkouts} 
+        muscles={muscles}
+      />
       <Section>
         <Ul>
           {workouts.length > 0 ? (

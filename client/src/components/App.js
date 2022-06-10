@@ -9,6 +9,13 @@ import styled from "styled-components";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [muscles, setMuscles] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/muscles")
+      .then((r) => r.json())
+      .then(setMuscles)
+  }, []);
 
   useEffect(() => {
     // auto-login user
@@ -33,7 +40,7 @@ function App() {
             <WorkoutPage user={user}/>
           </Route>
           <Route path="/">
-            <WorkoutList/>
+            <WorkoutList muscles={muscles}/>
           </Route>
         </Switch>
       </Wrapper>
