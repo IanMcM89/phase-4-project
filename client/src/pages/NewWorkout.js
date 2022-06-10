@@ -159,7 +159,7 @@ function NewWorkout({ user }) {
             </FormField>
             <FormField>
               {errors.map((error) =>
-                <Error key={error} style={{ color: 'red' }}>{error}</Error>
+                <Error key={error}>{error}</Error>
               )}
             </FormField>
           </Section2>
