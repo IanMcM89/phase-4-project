@@ -9,13 +9,6 @@ import styled from "styled-components";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [muscles, setMuscles] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/muscles")
-      .then((r) => r.json())
-      .then(setMuscles)
-  }, []);
 
   useEffect(() => {
     // auto-login user
@@ -37,10 +30,10 @@ function App() {
             <NewWorkout user={user} />
           </Route>
           <Route path="/workouts/:id">
-            <WorkoutPage user={user}/>
+            <WorkoutPage user={user} />
           </Route>
           <Route path="/">
-            <WorkoutList muscles={muscles}/>
+            <WorkoutList />
           </Route>
         </Switch>
       </Wrapper>
@@ -56,6 +49,8 @@ const Wrapper = styled.main`
   height: 90vh;
   margin: 0;
   overflow: hidden;
+  background: url("/images/background.png") repeat;
+  background-size: 400px;
 `;
 
 export default App;

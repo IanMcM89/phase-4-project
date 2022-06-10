@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-function ImageMap({ filterWorkouts, muscles }) {
+function ImageMap({ filterWorkouts }) {
   const [bodyImg, setBodyImg] = useState(null);
   const [source, setSource] = useState("/images/body/default.png");
+  const [muscles, setMuscles] = useState([]);
 
   useEffect(() => {
     setBodyImg(document.getElementById("default"))
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/muscles")
+      .then((r) => r.json())
+      .then(setMuscles)
   }, []);
 
   const handleMouseOver = (e) => {
