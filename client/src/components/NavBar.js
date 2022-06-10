@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Logo, Button } from "../styles";
+import { Header, Logo, Title, Button } from "../styles";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -27,7 +27,7 @@ function NavBar({ user, setUser }) {
           }}
           alt="App Logo" />
         <Link style={{textDecoration: "none"}} to="/">
-          <Title>Fitness App</Title>
+          <Title style={{color: "white"}}>Fitness App</Title>
         </Link>
       </Logo>
       <Nav>
@@ -39,13 +39,6 @@ function NavBar({ user, setUser }) {
     </Header>
   )
 }
-
-const Title = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 2rem;
-  color: white;
-  margin: 0;
-`;
 
 const Nav = styled.nav`
   display: flex;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 import { Header } from "../styles";
-import { Button, Logo, Overlay, Error, FormField } from "../styles";
+import { Logo, Title, FormField, Error, Button, Overlay } from "../styles";
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
@@ -21,7 +21,7 @@ function Login({ onLogin }) {
           {
             showLogin ? (
               <>
-                <LoginForm onLogin={onLogin} setErrors={setErrors}/>
+                <LoginForm onLogin={onLogin} setErrors={setErrors} />
                 <p>
                   Don't have an account? &nbsp;
                   <Button variant="blue" onClick={() => setShowLogin(false)}>
@@ -31,7 +31,7 @@ function Login({ onLogin }) {
               </>
             ) : (
               <>
-                <SignUpForm onLogin={onLogin} setErrors={setErrors}/>
+                <SignUpForm onLogin={onLogin} setErrors={setErrors} />
                 <p>
                   Already have an account? &nbsp;
                   <Button variant="blue" onClick={() => setShowLogin(true)}>
@@ -53,12 +53,6 @@ function Login({ onLogin }) {
   )
 }
 
-const Title = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: royalblue;
-`;
-
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -74,7 +68,7 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px;
+  width: 30%;
   height: 100%;
   margin: auto;
   padding: 2%;
