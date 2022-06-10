@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
-import { Button, Input, Textarea, FormField, Label, Error, Overlay } from "../styles";
+import { Title, Form, FormField, Input, Textarea, Label, Error, Button, Overlay } from "../styles";
 import styled from "styled-components";
 
 function NewWorkout({ user }) {
@@ -22,9 +22,7 @@ function NewWorkout({ user }) {
   useEffect(() => {
     fetch("/api/muscles")
       .then((r) => r.json())
-      .then((muscles) => {
-        setMuscles(muscles);
-      })
+      .then(setMuscles)
   }, []);
 
   const handleChange = (e) => {
@@ -43,29 +41,30 @@ function NewWorkout({ user }) {
       body: JSON.stringify(formData),
     });
 
-    const workoutData = await r.json();
-    console.log(workoutData);
+    const newWorkout = await r.json();
     setLoading(false);
     if (r.ok) {
-      history.push(`/workouts/${workoutData.id}`)
+      history.push(`/workouts/${newWorkout.id}`)
     } else {
-      setErrors(workoutData.errors);
+      setErrors(newWorkout.errors);
     }
   }
-
-  console.log(formData)
 
   return (
     <>
       <Wrapper>
-        <H1>Create Workout </H1>
-        <Form onSubmit={handleSubmit}>
-          <Section>
+        <PostLogo>
+          <img src="/images/logo_1.png" style={{ width: "100px" }} alt="App Logo" />
+          <Title>Create Workout</Title>
+        </PostLogo>
+        <PostForm onSubmit={handleSubmit}>
+          <Section1>
             <FormField>
               <Label htmlFor="title">Title</Label>
               <Input
                 type="text"
                 id="title"
+                placeholder="Push Ups..."
                 value={formData.title}
                 onChange={handleChange}
               />
@@ -75,33 +74,36 @@ function NewWorkout({ user }) {
               <Input
                 type="url"
                 id="image_url"
+                placeholder="https://..."
                 value={formData.image_url}
                 onChange={handleChange}
               />
             </FormField>
-            <FormField>
+            <FormField style={{ height: "100%" }}>
               <Label htmlFor="description">Method</Label>
               <Textarea
                 type="textarea"
                 id="description"
+                placeholder="Maximum 500 characters..."
                 value={formData.description}
                 onChange={handleChange}
+                style={{ height: "80%" }}
               />
             </FormField>
-          </Section>
-          <Section>
+          </Section1>
+          <Section2>
             <FormField>
               <Label htmlFor="muscle_id">Muscle Group</Label>
-              <select id="muscle_id" onChange={handleChange}>
+              <Select id="muscle_id" onChange={handleChange}>
                 {muscles.map(muscle => (
                   <option key={muscle.id} value={muscle.id}>
                     {muscle.title}
                   </option>
                 ))}
-              </select>
-                </FormField>
+              </Select>
+            </FormField>
             <FormField>
-              <Label htmlFor="is_weighted">Weighted</Label>
+              <Label htmlFor="is_weighted">Weights Required ?</Label>
               <Input
                 type="checkbox"
                 id="is_weighted"
@@ -111,17 +113,18 @@ function NewWorkout({ user }) {
                     { ...formData, [e.target.id]: !formData.is_weighted }
                   );
                 }}
+                style={{ width: "auto" }}
               />
             </FormField>
             <FormField>
-              <Label htmlFor="sets" style={{ display: "flex", justifyContent: "space-between" }}>
+              <RangeLabel htmlFor="sets">
                 Sets
                 {
                   <Output id="amount" htmlFor="sets">
                     {formData.sets}
                   </Output>
                 }
-              </Label>
+              </RangeLabel>
               <Input
                 type="range"
                 id="sets"
@@ -132,14 +135,14 @@ function NewWorkout({ user }) {
               />
             </FormField>
             <FormField>
-              <Label htmlFor="sets" style={{ display: "flex", justifyContent: "space-between" }}>
-                Sets
+              <RangeLabel htmlFor="reps">
+                Reps
                 {
                   <Output id="amount" htmlFor="reps">
                     {formData.reps}
                   </Output>
                 }
-              </Label>
+              </RangeLabel>
               <Input
                 type="range"
                 id="reps"
@@ -159,8 +162,8 @@ function NewWorkout({ user }) {
                 <Error key={error} style={{ color: 'red' }}>{error}</Error>
               )}
             </FormField>
-          </Section>
-        </Form>
+          </Section2>
+        </PostForm>
       </Wrapper>
       <Overlay variant="up" />
     </>
@@ -168,44 +171,53 @@ function NewWorkout({ user }) {
 }
 
 const Wrapper = styled.div`
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 90vh;
-  margin: 0;
-  background: url("/images/background.png") repeat;
-  background-size: 400px;
-`;
-
-const H1 = styled.h1`
-  background-color: white;
-  font-family: "Permanent Marker", cursive;
-  font-size: 2rem;
-  color: royalblue;
-  text-align: center;
-  width: 50%;
-  margin: 0;
-  padding: 2%
-`;
-
-const Form = styled.form`
-  background-color: white;
-  display: flex;
-  justify-content: center;
   width: 50%;
   height: 100%;
-  margin: 0;
-  animation: appear 1.4s ease forwards;
+  margin: auto;
 `;
 
-const Section = styled.section`
+const PostLogo = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: 0;
+  animation: appear 0.8s ease forwards;
+`;
+
+const PostForm = styled(Form)`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0 2% 0 2%;
+`;
+
+const Section1 = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 96%;
+  width: 60%;
   margin: 0;
-  padding: 2%;
+  padding 0 2% 0 2%;
+`;
+
+const Section2 = styled(Section1)`
+  width: 40%;
+`;
+
+const Select = styled.select`
+  color: orange;
+  font-family: "Permanent Marker", cursive;
+  border: none
+`;
+
+const RangeLabel = styled(Label)`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Output = styled.output`
