@@ -73,7 +73,6 @@ Muscle.create(
 )
 
 Workout.create(
-  id: 1,
   title: "Pushups", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut sem nulla pharetra diam sit amet nisl suscipit. Pellentesque id nibh tortor id aliquet lectus proin nibh nisl. Auctor elit sed vulputate mi sit amet mauris commodo. In pellentesque massa placerat duis ultricies lacus. Risus quis varius quam quisque id diam vel quam. Accumsan in nisl nisi scelerisque eu ultrices. Venenatis lectus magna fringilla urna.", 
@@ -85,7 +84,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 2,
   title: "Crunches", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Scelerisque in dictum non consectetur a erat nam at. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. A arcu cursus vitae congue mauris rhoncus.", 
@@ -97,7 +95,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 3,
   title: "Pull Ups", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Odio morbi quis commodo odio aenean. Quis imperdiet massa tincidunt nunc pulvinar sapien et. Tortor condimentum lacinia quis vel eros. Viverra nam libero justo laoreet sit amet cursus sit amet.", 
@@ -109,7 +106,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 4,
   title: "Tricep Dips", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Massa tincidunt dui ut ornare lectus sit amet est. Leo a diam sollicitudin tempor id eu. Lectus proin nibh nisl condimentum id venenatis a condimentum vitae.", 
@@ -121,7 +117,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 5,
   title: "Weighted Squats", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Faucibus a pellentesque sit amet porttitor eget dolor morbi. Donec ac odio tempor orci dapibus ultrices in iaculis nunc. Velit scelerisque in dictum non consectetur a. Mattis nunc sed blandit libero volutpat. Risus viverra adipiscing at in tellus integer feugiat scelerisque.", 
@@ -133,7 +128,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 6,
   title: "Incline Bench", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Sem fringilla ut morbi tincidunt. Nulla pharetra diam sit amet nisl suscipit adipiscing. Amet cursus sit amet dictum sit amet justo donec. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.", 
@@ -145,7 +139,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 7,
   title: "Plank", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Quisque non tellus orci ac auctor. Tempus egestas sed sed risus pretium quam vulputate dignissim. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.", 
@@ -157,7 +150,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 8,
   title: "Deadlifts", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Purus gravida quis blandit turpis cursus. Aliquet risus feugiat in ante. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et.", 
@@ -169,7 +161,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 9,
   title: "Skull Crushers", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Imperdiet sed euismod nisi porta lorem mollis aliquam ut. Faucibus pulvinar elementum integer enim neque volutpat ac. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Eget dolor morbi non arcu. ", 
@@ -181,7 +172,6 @@ Workout.create(
 )
 
 Workout.create(
-  id: 10,
   title: "Pistol Squats", 
   image_url: "https://cdn.pixabay.com/photo/2014/05/18/18/28/icon-347233_960_720.png", 
   description: "Augue ut lectus arcu bibendum. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. In iaculis nunc sed augue lacus viverra vitae.", 
