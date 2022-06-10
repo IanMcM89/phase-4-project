@@ -7,24 +7,39 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(
-  id: 1,
   username: "ianmcm89",
   password: "Atlas-111",
   password_confirmation: "Atlas-111"
 )
 
 User.create(
-  id: 2,
   username: "user1",
   password: "password1",
   password_confirmation: "password1"
 )
 
 User.create(
-  id: 3,
   username: "User_02",
   password: "password2",
   password_confirmation: "password2"
+)
+
+User.create(
+  username: "user_003",
+  password: "password3",
+  password_confirmation: "password3"
+)
+
+User.create(
+  username: "USER4",
+  password: "password4",
+  password_confirmation: "password4"
+)
+
+User.create(
+  username: "user_005",
+  password: "password5",
+  password_confirmation: "password5"
 )
 
 Muscle.create(
@@ -203,6 +218,22 @@ end
 Workout.all.each  do |w| 
   Comment.create(
     message: "Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies.",
+    user_id: 3,
+    workout_id: w.id
+  )
+end
+
+Workout.all.each  do |w| 
+  Comment.create(
+    message: "Eget nunc lobortis mattis aliquam faucibus purus in massa. Molestie nunc non blandit massa enim nec dui nunc.",
+    user_id: 4,
+    workout_id: w.id
+  )
+end
+
+Workout.all.each  do |w| 
+  Comment.create(
+    message: "Ut tristique et egestas quis ipsum suspendisse ultrices gravida. Amet aliquam id diam maecenas ultricies. Et tortor at risus viverra adipiscing at in. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Eget velit aliquet sagittis id consectetur purus ut faucibus. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Lacinia quis vel eros donec ac.",
     user_id: 3,
     workout_id: w.id
   )
