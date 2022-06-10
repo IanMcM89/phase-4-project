@@ -5,20 +5,18 @@ import styled from "styled-components";
 
 function CommentList({ workout, user }) {
   const [comments, setComments] = useState([]);
-  const [showForm, setShowForm] = useState([false]);
+  const [showForm, setShowForm] = useState(false);
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch("/api/comments").then((r) => {
-      if (r.ok) {
-        r.json().then((comments) => {
-          setComments(comments.filter((comment) => {
-            return comment.workout.id === workout.id
-          }))
-        });
-      }
+      if (r.ok) {r.json().then((comments) => {
+          setComments(comments.filter((comment) => (
+            comment.workout.id === workout.id
+          )));
+        });}
     });
   }, [workout.id]);
 
@@ -54,19 +52,20 @@ function CommentList({ workout, user }) {
       }),
     });
 
-    const commentData = await r.json();
+    const newComment = await r.json();
     setLoading(false);
     if (r.ok) {
-      setComments([...comments, commentData]);
+      setComments([...comments, newComment]);
       setShowForm(!showForm);
+      setMessage("");
     } else {
-      setErrors(commentData.errors);
+      setErrors(newComment.errors);
     }
   }
 
   return (
     <Wrapper>
-      {!showForm ? (
+      {showForm ? (
         <Section>
           <p style={{ color: "gray" }}>
             Commenting on {user.username === workout.posted_by ? "your own" : `${workout.posted_by}'s`} post...
@@ -114,7 +113,7 @@ function CommentList({ workout, user }) {
       )}
       <Nav>
         <Button onClick={() => setShowForm(!showForm)} variant="orange">
-          {showForm ? "Leave Comment" : "Comments"}
+          {showForm ? "Comments" : "Leave Comment"}
         </Button>
       </Nav>
     </Wrapper>
@@ -122,6 +121,7 @@ function CommentList({ workout, user }) {
 }
 
 const Wrapper = styled.div`
+  background-color: lightgray;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -138,7 +138,6 @@ const Section = styled.section`
   height: 90%;
   margin: 0 0 1% 0;
   overflow-y: auto;
-  animation: appear 1.8s ease forwards;
 `;
 
 const Nav = styled.nav`
