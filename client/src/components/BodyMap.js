@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-function ImageMap({ filterWorkouts }) {
-  const [bodyImg, setBodyImg] = useState(null);
+function BodyMap({ filterWorkouts }) {
+  const [body, setBody] = useState(null);
   const [source, setSource] = useState("/images/body/default.png");
   const [muscles, setMuscles] = useState([]);
 
   useEffect(() => {
-    setBodyImg(document.getElementById("default"))
+    setBody(document.getElementById("default"))
   }, []);
 
   useEffect(() => {
@@ -20,27 +20,27 @@ function ImageMap({ filterWorkouts }) {
     const src = `/images/body/${e.target.id}.png`;
     switch (e.target.id) {
       case "chest":
-        bodyImg.src = src;
+        body.src = src;
         break;
       case "abs":
-        bodyImg.src = src;
+        body.src = src;
         break;
       case "back_neck":
-        bodyImg.src = src;
+        body.src = src;
         break;
       case "arms_shoulders":
-        bodyImg.src = src;
+        body.src = src;
         break;
       case "legs_glutes":
-        bodyImg.src = src;
+        body.src = src;
         break;
       default:
-        bodyImg.src = source;
+        body.src = source;
     }
   };
 
   const handleMouseOut = () => {
-    bodyImg.src = source;
+    body.src = source;
   };
 
   const handleClick = (e) => {
@@ -107,4 +107,4 @@ const Img = styled.img`
   orgHeight: "640px"
 `;
 
-export default ImageMap;
+export default BodyMap;
