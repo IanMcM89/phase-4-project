@@ -1,12 +1,13 @@
 import Header from "./Header";
-import Button from "./Button";
-import Error from "./Error";
+import Logo from "./Logo";
+import Title from "./Title";
 import Form from "./Form";
 import FormField from "./FormField";
 import Input from "./Input";
 import Textarea from "./Textarea";
 import Label from "./Label";
-import Logo from "./Logo";
+import Error from "./Error";
+import Button from "./Button";
 import Overlay from "./Overlay";
 
-export { Header, Button, Error, Form, FormField, Input, Textarea, Label, Logo, Overlay };
+export { Header, Logo, Title, Form, FormField, Input, Textarea, Label, Error, Button, Overlay };
