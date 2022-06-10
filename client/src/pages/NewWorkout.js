@@ -6,7 +6,6 @@ import styled from "styled-components";
 function NewWorkout({ user }) {
   const history = useHistory();
   const [muscles, setMuscles] = useState([]);
-  const [selectedMuscle, setSelectedMuscle] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
@@ -17,7 +16,6 @@ function NewWorkout({ user }) {
     sets: 3,
     reps: 12,
     muscle_id: 1,
-    target_muscles: [],
     posted_by: user.username
   });
 
@@ -26,7 +24,6 @@ function NewWorkout({ user }) {
       .then((r) => r.json())
       .then((muscles) => {
         setMuscles(muscles);
-        setSelectedMuscle(muscles[0]);
       })
   }, []);
 
@@ -34,35 +31,26 @@ function NewWorkout({ user }) {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSelector = (e) => {
-    const target_muscle = muscles.find((muscle) => muscle.id === parseInt(e.target.value));
-    setSelectedMuscle(target_muscle);
-    setFormData({ ...formData, [e.target.id]: parseInt(e.target.value) });
-  }
-
-  const handleCheckbox = (e) => {
-    const muscleArray = formData.target_muscles;
-    muscleArray.push(e.target.value)
-    setFormData({ ...formData, [e.target.name]: muscleArray });
-  };
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    fetch("/api/workouts", {
+
+    const r = await fetch("/api/workouts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    }).then((r) => {
-      setLoading(false);
-      if (r.ok) {
-        r.json().then((newWorkout) => history.push(`/workouts/${newWorkout.id}`));
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
     });
+
+    const workoutData = await r.json();
+    console.log(workoutData);
+    setLoading(false);
+    if (r.ok) {
+      history.push(`/workouts/${workoutData.id}`)
+    } else {
+      setErrors(workoutData.errors);
+    }
   }
 
   console.log(formData)
@@ -104,28 +92,14 @@ function NewWorkout({ user }) {
           <Section>
             <FormField>
               <Label htmlFor="muscle_id">Muscle Group</Label>
-              <select id="muscle_id" onChange={(e) => handleSelector(e)}>
+              <select id="muscle_id" onChange={handleChange}>
                 {muscles.map(muscle => (
                   <option key={muscle.id} value={muscle.id}>
                     {muscle.title}
                   </option>
                 ))}
               </select>
-            </FormField>
-            <FormField>
-              <Label>Target Muscles</Label>
-              {selectedMuscle ? (selectedMuscle.sub_groups.map(group => (
-                <Input
-                  key={group}
-                  type="checkbox"
-                  name="target_muscles"
-                  value={group}
-                  onChange={(e) => handleCheckbox(e)}
-                />
-              ))) : (
-                null
-              )}
-            </FormField>
+                </FormField>
             <FormField>
               <Label htmlFor="is_weighted">Weighted</Label>
               <Input

@@ -9,7 +9,7 @@ function Workout({ workout }) {
     <Wrapper onClick={() => history.push(`/workouts/${workout.id}`)}>
       <Section>
         <H2 style={{ color: "darkblue", margin: 0 }}>{workout.title}</H2>
-        <H4>{workout.target_muscles.join(', ')}</H4>
+        <H4>{workout.muscle.title}</H4>
       </Section>
         <P>Posted By: {workout.posted_by}</P>
     </Wrapper>

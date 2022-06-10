@@ -81,7 +81,6 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 1,
-  target_muscles: ["Pecs"],
   posted_by: "ianmcm89"
 )
 
@@ -94,7 +93,6 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 2,
-  target_muscles: ["Abdominals"],
   posted_by: "user1"
 )
 
@@ -107,7 +105,6 @@ Workout.create(
   reps: 12, 
   is_weighted: true, 
   muscle_id: 3,
-  target_muscles: ["Lats", "Rhomboids"],
   posted_by: "ianmcm89"
 )
 
@@ -120,7 +117,6 @@ Workout.create(
   reps: 12, 
   is_weighted: false, 
   muscle_id: 4,
-  target_muscles: ["Triceps"],
   posted_by: "ianmcm89"
 )
 
@@ -133,7 +129,6 @@ Workout.create(
   reps: 12, 
   is_weighted: true, 
   muscle_id: 5,
-  target_muscles: ["Glutes", "Quads", "Hamstrings"],
   posted_by: "user1"
 )
 
@@ -146,7 +141,6 @@ Workout.create(
   reps: 12, 
   is_weighted: true, 
   muscle_id: 1,
-  target_muscles: ["Pecs"],
   posted_by: "User_02"
 )
 
@@ -159,7 +153,6 @@ Workout.create(
   reps: 1, 
   is_weighted: false, 
   muscle_id: 2,
-  target_muscles: ["Abdominals"],
   posted_by: "user1"
 )
 
@@ -172,7 +165,6 @@ Workout.create(
   reps: 8, 
   is_weighted: true, 
   muscle_id: 3,
-  target_muscles: ["Erector Spinae"],
   posted_by: "User_02"
 )
 
@@ -185,7 +177,6 @@ Workout.create(
   reps: 8, 
   is_weighted: true, 
   muscle_id: 4,
-  target_muscles: ["Triceps"],
   posted_by: "ianmcm89"
 )
 
@@ -198,7 +189,6 @@ Workout.create(
   reps: 12, 
   is_weighted: true, 
   muscle_id: 5,
-  target_muscles: ["Glutes", "Quads", "Hamstrings", "Calves"],
   posted_by: "User_02"
 )
 
