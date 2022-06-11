@@ -103,7 +103,7 @@ const Figure = styled.figure`
 
 const Img = styled.img`
   display: flex;
-  width: cover;
+  width: 100%;
   position: center;
 `;
 
