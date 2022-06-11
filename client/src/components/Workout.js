@@ -31,7 +31,7 @@ function Workout({ workout, user }) {
           <h3>Method:</h3>
           <Description>{workout.description}</Description>
           <Nav>
-            <p style={{ color: "gray" }}>Posted By: {workout.posted_by} {workout.created_at}</p>
+            <p style={{ color: "gray" }}>Posted By: <Span>{workout.posted_by}</Span> {workout.created_at}</p>
             {workout.posted_by === user.username ? (
               <Icon style={{ fontSize: "1.5rem" }} onClick={handleDelete}>🗑️</Icon>
             ) : (
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 60%;
   height: 100%;
   padding: 1%;
 `;
@@ -73,7 +73,7 @@ const Info = styled.div`
 const H1 = styled.h1`
   color: darkblue;
   font-family: cursive;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0 0 10px 0;
 `;
 
