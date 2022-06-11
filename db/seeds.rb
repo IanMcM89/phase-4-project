@@ -87,7 +87,7 @@ Muscle.create(
   coords: "117,544,106,297,136,297,157,333,184,295,215,295,204,545,436,549,422,325,432,277,479,285,523,275,535,325,522,550"
 )
 
-Workout.create(
+Exercise.create(
   title: "Pushups", 
   image_url: "/images/camera.png", 
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut sem nulla pharetra diam sit amet nisl suscipit. Pellentesque id nibh tortor id aliquet lectus proin nibh nisl. Auctor elit sed vulputate mi sit amet mauris commodo. In pellentesque massa placerat duis ultricies lacus. Risus quis varius quam quisque id diam vel quam. Accumsan in nisl nisi scelerisque eu ultrices. Venenatis lectus magna fringilla urna.", 
@@ -98,7 +98,7 @@ Workout.create(
   posted_by: "ianmcm89"
 )
 
-Workout.create(
+Exercise.create(
   title: "Crunches", 
   image_url: "/images/camera.png", 
   description: "Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Scelerisque in dictum non consectetur a erat nam at. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. A arcu cursus vitae congue mauris rhoncus.", 
@@ -109,7 +109,7 @@ Workout.create(
   posted_by: "user1"
 )
 
-Workout.create(
+Exercise.create(
   title: "Pull Ups", 
   image_url: "/images/camera.png", 
   description: "Odio morbi quis commodo odio aenean. Quis imperdiet massa tincidunt nunc pulvinar sapien et. Tortor condimentum lacinia quis vel eros. Viverra nam libero justo laoreet sit amet cursus sit amet.", 
@@ -120,7 +120,7 @@ Workout.create(
   posted_by: "ianmcm89"
 )
 
-Workout.create(
+Exercise.create(
   title: "Tricep Dips", 
   image_url: "/images/camera.png", 
   description: "Massa tincidunt dui ut ornare lectus sit amet est. Leo a diam sollicitudin tempor id eu. Lectus proin nibh nisl condimentum id venenatis a condimentum vitae.", 
@@ -131,7 +131,7 @@ Workout.create(
   posted_by: "ianmcm89"
 )
 
-Workout.create(
+Exercise.create(
   title: "Weighted Squats", 
   image_url: "/images/camera.png", 
   description: "Faucibus a pellentesque sit amet porttitor eget dolor morbi. Donec ac odio tempor orci dapibus ultrices in iaculis nunc. Velit scelerisque in dictum non consectetur a. Mattis nunc sed blandit libero volutpat. Risus viverra adipiscing at in tellus integer feugiat scelerisque.", 
@@ -142,7 +142,7 @@ Workout.create(
   posted_by: "user1"
 )
 
-Workout.create(
+Exercise.create(
   title: "Incline Bench", 
   image_url: "/images/camera.png", 
   description: "Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Sem fringilla ut morbi tincidunt. Nulla pharetra diam sit amet nisl suscipit adipiscing. Amet cursus sit amet dictum sit amet justo donec. Sagittis nisl rhoncus mattis rhoncus urna neque viverra.", 
@@ -153,7 +153,7 @@ Workout.create(
   posted_by: "User_02"
 )
 
-Workout.create(
+Exercise.create(
   title: "Plank", 
   image_url: "/images/camera.png", 
   description: "Quisque non tellus orci ac auctor. Tempus egestas sed sed risus pretium quam vulputate dignissim. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et.", 
@@ -164,7 +164,7 @@ Workout.create(
   posted_by: "user1"
 )
 
-Workout.create(
+Exercise.create(
   title: "Deadlifts", 
   image_url: "/images/camera.png", 
   description: "Purus gravida quis blandit turpis cursus. Aliquet risus feugiat in ante. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et.", 
@@ -175,7 +175,7 @@ Workout.create(
   posted_by: "User_02"
 )
 
-Workout.create(
+Exercise.create(
   title: "Skull Crushers", 
   image_url: "/images/camera.png", 
   description: "Imperdiet sed euismod nisi porta lorem mollis aliquam ut. Faucibus pulvinar elementum integer enim neque volutpat ac. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Eget dolor morbi non arcu. ", 
@@ -186,7 +186,7 @@ Workout.create(
   posted_by: "ianmcm89"
 )
 
-Workout.create(
+Exercise.create(
   title: "Pistol Squats", 
   image_url: "/images/camera.png", 
   description: "Augue ut lectus arcu bibendum. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. In iaculis nunc sed augue lacus viverra vitae.", 
@@ -199,42 +199,42 @@ Workout.create(
 
 # Comments Seeds
 
-Workout.all.each  do |w| 
+Exercise.all.each  do |w| 
   Comment.create(
     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     user_id: 1,
-    workout_id: w.id
+    exercise_id: w.id
   )
 end
 
-Workout.all.each  do |w| 
+Exercise.all.each  do |w| 
   Comment.create(
     message: "Augue ut lectus arcu bibendum.",
     user_id: 2,
-    workout_id: w.id
+    exercise_id: w.id
   )
 end
 
-Workout.all.each  do |w| 
+Exercise.all.each  do |w| 
   Comment.create(
     message: "Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies.",
     user_id: 3,
-    workout_id: w.id
+    exercise_id: w.id
   )
 end
 
-Workout.all.each  do |w| 
+Exercise.all.each  do |w| 
   Comment.create(
     message: "Eget nunc lobortis mattis aliquam faucibus purus in massa. Molestie nunc non blandit massa enim nec dui nunc.",
     user_id: 4,
-    workout_id: w.id
+    exercise_id: w.id
   )
 end
 
-Workout.all.each  do |w| 
+Exercise.all.each  do |w| 
   Comment.create(
     message: "Ut tristique et egestas quis ipsum suspendisse ultrices gravida. Amet aliquam id diam maecenas ultricies. Et tortor at risus viverra adipiscing at in. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Eget velit aliquet sagittis id consectetur purus ut faucibus. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Lacinia quis vel eros donec ac.",
     user_id: 3,
-    workout_id: w.id
+    exercise_id: w.id
   )
 end

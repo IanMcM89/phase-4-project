@@ -2,13 +2,13 @@ class Api::CommentsController < ApplicationController
 
   # GET /comments
   def index
-    if params[:workout_id]
-      workout = Workout.find(params[:workout_id])
-      comments = workout.comments
+    if params[:exercise_id]
+      exercise = Exercise.find(params[:exercise_id])
+      comments = exercise.comments
     else
       comments = Comment.all
     end
-    render json: comments, include: [:user, :workout]
+    render json: comments, include: [:user, :exercise]
   end
 
   # GET /comments/:id
@@ -46,6 +46,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def comment_params
-    params.permit(:message, :rating, :user_id, :workout_id)
+    params.permit(:message, :rating, :user_id, :exercise_id)
   end
 end

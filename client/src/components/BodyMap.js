@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-function BodyMap({ filterWorkouts }) {
+function BodyMap({ filterExercises }) {
   const [body, setBody] = useState(null);
   const [source, setSource] = useState("/images/body/default.png");
   const [muscles, setMuscles] = useState([]);
@@ -51,7 +51,7 @@ function BodyMap({ filterWorkouts }) {
     setSpanStatic(muscle ? muscle : null);
 
     setSource(`/images/body/${e.target.id}.png`);
-    filterWorkouts(e.target.id);
+    filterExercises(e.target.id);
   }
 
   const renderSpan = () => {

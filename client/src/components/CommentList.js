@@ -3,7 +3,7 @@ import Comment from "./Comment";
 import { Button, Error, Textarea, Form, FormField, Label } from "../styles";
 import styled from "styled-components";
 
-function CommentList({ workout, user }) {
+function CommentList({ exercise, user }) {
   const [comments, setComments] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [message, setMessage] = useState("");
@@ -14,11 +14,11 @@ function CommentList({ workout, user }) {
     fetch("/api/comments").then((r) => {
       if (r.ok) {r.json().then((comments) => {
           setComments(comments.filter((comment) => (
-            comment.workout.id === workout.id
+            comment.exercise.id === exercise.id
           )));
         });}
     });
-  }, [workout.id]);
+  }, [exercise.id]);
 
   const handleDelete = (id) => {
     fetch(`/api/comments/${id}`, {
@@ -48,7 +48,7 @@ function CommentList({ workout, user }) {
       body: JSON.stringify({
         message: message,
         user_id: user.id,
-        workout_id: workout.id,
+        exercise_id: exercise.id,
       }),
     });
 
@@ -68,7 +68,7 @@ function CommentList({ workout, user }) {
       {showForm ? (
         <Section>
           <p style={{ color: "gray" }}>
-            Commenting on {user.username === workout.posted_by ? "your own" : `${workout.posted_by}'s`} post...
+            Commenting on {user.username === exercise.posted_by ? "your own" : `${exercise.posted_by}'s`} post...
           </p>
           <Form onSubmit={handleSubmit} style={{ height: "60%", animation: "expand 0.8s ease forwards" }}>
             <FormField style={{ height: "inherit" }}>

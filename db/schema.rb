@@ -18,7 +18,20 @@ ActiveRecord::Schema.define(version: 2022_05_30_225934) do
   create_table "comments", force: :cascade do |t|
     t.string "message"
     t.integer "user_id"
-    t.integer "workout_id"
+    t.integer "exercise_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "title"
+    t.string "image_url"
+    t.string "description"
+    t.boolean "is_weighted"
+    t.integer "sets"
+    t.integer "reps"
+    t.integer "muscle_id"
+    t.string "posted_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,19 +49,6 @@ ActiveRecord::Schema.define(version: 2022_05_30_225934) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "workouts", force: :cascade do |t|
-    t.string "title"
-    t.string "image_url"
-    t.string "description"
-    t.boolean "is_weighted"
-    t.integer "sets"
-    t.integer "reps"
-    t.integer "muscle_id"
-    t.string "posted_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

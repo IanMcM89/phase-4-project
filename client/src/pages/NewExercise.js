@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import { Title, Form, FormField, Input, Textarea, Label, Error, Button, Overlay } from "../styles";
 import styled from "styled-components";
 
-function NewWorkout({ user }) {
+function NewExercise({ user }) {
   const history = useHistory();
   const [muscles, setMuscles] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ function NewWorkout({ user }) {
     e.preventDefault();
     setLoading(true);
 
-    const r = await fetch("/api/workouts", {
+    const r = await fetch("/api/exercises", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,12 +41,12 @@ function NewWorkout({ user }) {
       body: JSON.stringify(formData),
     });
 
-    const newWorkout = await r.json();
+    const newExercise = await r.json();
     setLoading(false);
     if (r.ok) {
-      history.push(`/workouts/${newWorkout.id}`)
+      history.push(`/exercises/${newExercise.id}`)
     } else {
-      setErrors(newWorkout.errors);
+      setErrors(newExercise.errors);
     }
   }
 
@@ -54,7 +54,7 @@ function NewWorkout({ user }) {
     <Wrapper>
       <PostLogo>
         <img src="/images/logo_1.png" style={{ width: "100px" }} alt="App Logo" />
-        <Title>Create Workout</Title>
+        <Title>Create Exercise</Title>
       </PostLogo>
       <PostForm onSubmit={handleSubmit}>
         <Section1>
@@ -222,4 +222,4 @@ const Output = styled.output`
   color: orange;
 `;
 
-export default NewWorkout
+export default NewExercise

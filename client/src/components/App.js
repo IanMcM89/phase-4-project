@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
-import WorkoutList from "../pages/WorkoutList";
-import WorkoutPage from "../pages/WorkoutPage";
-import NewWorkout from "../pages/NewWorkout";
+import ExerciseList from "../pages/ExerciseList";
+import ExercisePage from "../pages/ExercisePage";
+import NewExercise from "../pages/NewExercise";
 import styled from "styled-components";
 
 function App() {
@@ -27,13 +27,13 @@ function App() {
       <Wrapper>
         <Switch>
           <Route path="/create">
-            <NewWorkout user={user} />
+            <NewExercise user={user} />
           </Route>
-          <Route path="/workouts/:id">
-            <WorkoutPage user={user} />
+          <Route path="/exercises/:id">
+            <ExercisePage user={user} />
           </Route>
           <Route path="/">
-            <WorkoutList />
+            <ExerciseList />
           </Route>
         </Switch>
       </Wrapper>

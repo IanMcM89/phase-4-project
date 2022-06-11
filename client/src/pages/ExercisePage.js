@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { Overlay } from "../styles";
-import Workout from "../components/Workout";
+import Exercise from "../components/Exercise";
 import CommentList from "../components/CommentList";
 import Response from "../components/Response";
 import styled from "styled-components";
 
-function WorkoutPage({ user }) {
-  const [workout, setWorkout] = useState(null);
+function ExercisePage({ user }) {
+  const [exercise, setExercise] = useState(null);
   const [response, setResponse] = useState(null)
   const location = useLocation();
 
   useEffect(() => {
     fetch(`/api${location.pathname}`).then((r) => {
       if (r.ok) {
-        r.json().then(setWorkout);
+        r.json().then(setExercise);
       } else {
         setResponse(r);
       }
@@ -24,11 +24,11 @@ function WorkoutPage({ user }) {
   return (
     <>
       {(() => {
-        if (workout) {
+        if (exercise) {
           return (
             <Wrapper>
-              <Workout workout={workout} user={user} />
-              <CommentList workout={workout} user={user} />
+              <Exercise exercise={exercise} user={user} />
+              <CommentList exercise={exercise} user={user} />
             </Wrapper>
           )
         } else if (response) {
@@ -51,4 +51,4 @@ const Wrapper = styled.div`
   height: 100%;
 `;
 
-export default WorkoutPage;
+export default ExercisePage;

@@ -2,16 +2,16 @@ import React from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
 
-function WorkoutSpan({ workout }) {
+function ExerciseSpan({ exercise }) {
   const history = useHistory();
 
   return (
-    <Wrapper onClick={() => history.push(`/workouts/${workout.id}`)}>
+    <Wrapper onClick={() => history.push(`/exercises/${exercise.id}`)}>
       <Section>
-        <H2 style={{ color: "darkblue", margin: 0 }}>{workout.title}</H2>
-        <H4>{workout.muscle.title}</H4>
+        <H2 style={{ color: "darkblue", margin: 0 }}>{exercise.title}</H2>
+        <H4>{exercise.muscle.title}</H4>
       </Section>
-        <P>Posted By: {workout.posted_by}</P>
+        <P>Posted By: {exercise.posted_by}</P>
     </Wrapper>
   )
 }
@@ -62,4 +62,4 @@ const Section = styled.section`
   height: auto;
 `;
 
-export default WorkoutSpan;
+export default ExerciseSpan;

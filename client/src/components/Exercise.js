@@ -3,11 +3,11 @@ import { useHistory } from "react-router";
 import { Icon } from "../styles";
 import styled from "styled-components";
 
-function Workout({ workout, user }) {
+function Exercise({ exercise, user }) {
   const history = useHistory();
 
   const handleDelete = () => {
-    fetch(`/api/workouts/${workout.id}`, {
+    fetch(`/api/exercises/${exercise.id}`, {
       method: "DELETE"
     }).then(history.push("/"));
   };
@@ -16,23 +16,23 @@ function Workout({ workout, user }) {
     <Wrapper>
       <Section>
         <Info>
-          <H1>{workout.title}</H1>
-          <H2>{workout.muscle.title}</H2>
-          <P>Requires Weights:&ensp;<Span>{workout.is_weighted ? 'Yes' : 'No'}</Span></P>
-          <P>Sets:&ensp;<Span>{workout.sets}</Span></P>
-          <P>Reps:&ensp;<Span>{workout.reps}</Span></P>
+          <H1>{exercise.title}</H1>
+          <H2>{exercise.muscle.title}</H2>
+          <P>Requires Weights:&ensp;<Span>{exercise.is_weighted ? 'Yes' : 'No'}</Span></P>
+          <P>Sets:&ensp;<Span>{exercise.sets}</Span></P>
+          <P>Reps:&ensp;<Span>{exercise.reps}</Span></P>
         </Info>
         <Figure>
-          <Img src={workout.image_url} alt={workout.title} />
+          <Img src={exercise.image_url} alt={exercise.title} />
         </Figure>
       </Section>
       <Section>
         <Method>
           <h3>Method:</h3>
-          <Description>{workout.description}</Description>
+          <Description>{exercise.description}</Description>
           <Nav>
-            <p style={{ color: "gray" }}>Posted By: <Span>{workout.posted_by}</Span> {workout.created_at}</p>
-            {workout.posted_by === user.username ? (
+            <p style={{ color: "gray" }}>Posted By: <Span>{exercise.posted_by}</Span> {exercise.created_at}</p>
+            {exercise.posted_by === user.username ? (
               <Icon style={{ fontSize: "1.5rem" }} onClick={handleDelete}>🗑️</Icon>
             ) : (
               null
@@ -133,4 +133,4 @@ const Nav = styled.nav`
   margin: 0;
 `;
 
-export default Workout
+export default Exercise

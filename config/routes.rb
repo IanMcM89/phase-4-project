@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :workouts do
+    resources :exercises do
       resources :comments, only: [:show, :index]
     end
     resources :muscles, only: [:index, :show]
