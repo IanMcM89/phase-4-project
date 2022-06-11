@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { Button, Overlay } from "../styles";
 import BodyMap from "../components/BodyMap";
 import WorkoutSpan from "../components/WorkoutSpan";
+import SearchBar from "../components/SearchBar";
 import styled from "styled-components";
 
 function WorkoutList({ muscles }) {
   const [workouts, setWorkouts] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     filterWorkouts();
@@ -21,32 +24,49 @@ function WorkoutList({ muscles }) {
           )));
         });
       } else {
-        r.json().then(setWorkouts);
+        r.json()
+          .then((workouts) => {
+            setSearchResults(workouts)
+            setWorkouts(workouts)
+        })
       }
     });
   }
 
+  const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+
+    setSearchResults(workouts.filter((workout) => (
+      workout.title.toLowerCase().includes(value)
+    )));
+    setSearchValue(e.target.value);
+  };
+
   return (
     <Wrapper>
-      <BodyMap 
-        filterWorkouts={filterWorkouts} 
+      <BodyMap
         muscles={muscles}
+        filterWorkouts={filterWorkouts}
       />
       <Section>
+        <SearchBar
+          searchValue={searchValue}
+          handleSearch={handleSearch}
+        />
         <Ul>
           {workouts.length > 0 ? (
-            workouts.map((workout) => (
+            searchResults.map((workout) => (
               <WorkoutSpan key={workout.id} workout={workout} />
             ))
           ) : (
-            <h2 style={{color: "gray"}}>No workouts found</h2>
+            <h2 style={{ color: "gray" }}>No workouts found</h2>
           )}
         </Ul>
         <Nav>
           <Button as={Link} to="/create" variant="orange">Create Workout</Button>
         </Nav>
       </Section>
-      <Overlay variant="right"/>
+      <Overlay variant="right" />
     </Wrapper>
   )
 }
