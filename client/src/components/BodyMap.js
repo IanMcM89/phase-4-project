@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 
 function BodyMap({ getExercises }) {
   const [body, setBody] = useState(null);
@@ -18,38 +18,24 @@ function BodyMap({ getExercises }) {
       .then(setMuscles)
   }, []);
 
-  const handleMouseOver = (e, muscle) => {
-    setSpanDynamic(muscle);
-    const src = `/images/body/${e.target.id}.png`;
-    switch (e.target.id) {
-      case "chest":
-        body.src = src;
-        break;
-      case "abs":
-        body.src = src;
-        break;
-      case "back_neck":
-        body.src = src;
-        break;
-      case "arms_shoulders":
-        body.src = src;
-        break;
-      case "legs_glutes":
-        body.src = src;
-        break;
-      default:
-        body.src = source;
+  const handleHover = (e, muscle) => {
+    let value1;
+    let value2;
+    
+    if (e.type === "mouseover") {
+      value1 = `/images/body/${e.target.id}.png`
+      value2 = muscle
+    } else if (e.type === "mouseout") {
+      value1 = source
+      value2 = null
     }
-  };
 
-  const handleMouseOut = () => {
-    setSpanDynamic(null);
-    body.src = source;
+    body.src = value1;
+    setSpanDynamic(value2);
   };
 
   const handleClick = (e, muscle) => {
     setSpanStatic(muscle ? muscle : null);
-
     setSource(`/images/body/${e.target.id}.png`);
     getExercises(e.target.id);
   }
@@ -101,8 +87,8 @@ function BodyMap({ getExercises }) {
               shape="poly"
               coords={muscle.coords}
               onClick={(e) => handleClick(e, muscle)}
-              onMouseOver={(e) => handleMouseOver(e, muscle)}
-              onMouseOut={handleMouseOut}
+              onMouseOver={(e) => handleHover(e, muscle)}
+              onMouseOut={(e) => handleHover(e, muscle)}
             />
           )}
         </map>
@@ -111,21 +97,24 @@ function BodyMap({ getExercises }) {
   );
 }
 
-const Wrapper = styled.div`
-  background-color: white;
+const commonStyles=css`
   display: flex;
+  margin: 0;
+`;
+
+const Wrapper = styled.div`
+  ${commonStyles}
+  background-color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 60%;
   height: 100%;
-  margin: 0;
   overflow: hidden;
 `;
 
 const Figure = styled.figure`
-  display: flex;
-  margin: 0;
+  ${commonStyles}
   animation: appear 1.8s ease forwards;
 `;
 

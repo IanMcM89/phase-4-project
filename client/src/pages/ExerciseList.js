@@ -121,4 +121,4 @@ const Nav = styled.nav`
   height: 10%;
 `;
 
-export default ExerciseList
+export default ExerciseList;
