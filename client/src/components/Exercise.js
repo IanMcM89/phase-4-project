@@ -55,7 +55,6 @@ const Wrapper = styled.div`
 `;
 
 const Section = styled.section`
-  border: solid 1px gray;
   display: flex;
   width: 100%;
   height: 50%;
@@ -64,6 +63,7 @@ const Section = styled.section`
 
 const Info = styled.div`
   background-color: lightgray;
+  border: solid 2px orange;
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -72,8 +72,7 @@ const Info = styled.div`
 
 const H1 = styled.h1`
   color: darkblue;
-  font-family: cursive;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 0 0 10px 0;
 `;
 
@@ -90,6 +89,7 @@ const Span = styled.span`
 
 const P = styled.p`
   font-weight: bold;
+  margin: auto 0 auto 0;
 `;
 
 const Figure = styled.figure`
@@ -97,8 +97,8 @@ const Figure = styled.figure`
   justify-content: center;
   align-items: center;
   width: 60%;
-  margin: 0;
   overflow: hidden;
+  margin: 0 0 0 2%;
 `;
 
 const Img = styled.img`
@@ -119,7 +119,7 @@ const Method = styled.div`
 
 const Description = styled.p`
   display: flex;
-  font-family: cursive;
+  font-size: 18px;
   height: 100%;
   margin: 0;
   overflow-y: auto;
