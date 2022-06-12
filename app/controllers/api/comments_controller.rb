@@ -46,6 +46,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def comment_params
-    params.permit(:message, :rating, :user_id, :exercise_id)
+    params.permit(:message, :user_id, :exercise_id)
   end
 end
