@@ -6,7 +6,7 @@ function SearchBar({ searchValue, handleSearch }) {
   return (
     <Wrapper>
       <img src="./images/search.png" alt="Search Icon" />
-      <input
+      <Input
         type="text"
         name="search"
         placeholder="Search"
@@ -18,10 +18,17 @@ function SearchBar({ searchValue, handleSearch }) {
 }
 
 const Wrapper = styled.div`
-  background-color: orange;
   display: flex;
-  width: 100%;
-  height: 5%;
+  justify-content: flex-start;
+  width: 60%;
+  height: 40%;
+  margin: 0;
+`;
+
+const Input = styled.input`
+  display: flex;
+  width: 80%;
+  height: 100%;
   margin: 0;
 `;
 
