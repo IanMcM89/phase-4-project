@@ -16,7 +16,7 @@ function NavBar({ user, setUser }) {
 
   return (
     <Header>
-      <Logo style={{justifyContent: "left"}}>
+      <Logo style={{ justifyContent: "left" }}>
         <img
           src="/images/logo_2.png"
           style={{
@@ -26,8 +26,8 @@ function NavBar({ user, setUser }) {
             alignItems: "center"
           }}
           alt="App Logo" />
-        <Link style={{textDecoration: "none"}} to="/">
-          <Title style={{color: "white"}}>Fitness App</Title>
+        <Link style={{ textDecoration: "none" }} to="/">
+          <Title style={{ color: "white" }}>Fitness App</Title>
         </Link>
       </Logo>
       <Nav>

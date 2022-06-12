@@ -77,4 +77,4 @@ function SignUpForm({ onLogin, setErrors }) {
   )
 }
 
-export default SignUpForm
+export default SignUpForm;

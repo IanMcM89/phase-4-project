@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Comment from "./Comment";
 import { Button, Error, Textarea, Form, FormField, Label } from "../styles";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function CommentList({ exercise, user }) {
   const [comments, setComments] = useState([]);
@@ -30,7 +30,6 @@ function CommentList({ exercise, user }) {
 
   const updateCommentList = (patch) => {
     const i = comments.findIndex((comment) => comment.id === patch.id);
-
     comments[i] = patch;
 
     setComments(comments.map((comment) => comment));
@@ -120,32 +119,33 @@ function CommentList({ exercise, user }) {
   )
 }
 
-const Wrapper = styled.div`
-  background-color: lightgray;
+const commonStyles = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+`;
+
+const Wrapper = styled.div`
+  ${commonStyles}
+  background-color: lightgray;
   width: 40%;
   height: 100%;
   margin: 0;
 `;
 
 const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  ${commonStyles}
   height: 90%;
   margin: 0 0 1% 0;
   overflow-y: auto;
 `;
 
 const Nav = styled.nav`
+  ${commonStyles}
+  flex-direction: row;
   background-color: darkblue;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  width: 100%;
   height: 10%;
 `;
 

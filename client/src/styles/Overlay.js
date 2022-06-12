@@ -8,7 +8,7 @@ function Overlay({ variant = "right", ...props }) {
     Component = OverlayLeft;
   } else if (variant === "up") {
     Component = OverlayUp;
-  }else if (variant === "down") {
+  } else if (variant === "down") {
     Component = OverlayDown;
   }
 
@@ -37,6 +37,6 @@ const OverlayUp = styled(OverlayBase)`
 
 const OverlayDown = styled(OverlayBase)`
   animation: swoopDown 0.3s ease-in-out forwards .15s;
-`;  
+`;
 
 export default Overlay;

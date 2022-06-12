@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Textarea, Icon } from "../styles";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function Comment({ comment, user, onDelete, onUpdate }) {
   const [isEditable, setIsEditable] = useState(false);
@@ -15,9 +15,9 @@ function Comment({ comment, user, onDelete, onUpdate }) {
   }
 
   const handleChange = (e) => {
-    setCommentData({ 
-      ...commentData, 
-      [e.target.name]: e.target.value 
+    setCommentData({
+      ...commentData,
+      [e.target.name]: e.target.value
     })
   }
 
@@ -37,7 +37,7 @@ function Comment({ comment, user, onDelete, onUpdate }) {
   return (
     <Wrapper>
       <Section>
-        <h4 style={{ color: "orange", margin: 0 }}>{comment.user.username}:</h4>
+        <H4>{comment.user.username}:</H4>
         <Date>Posted: {comment.created_at}</Date>
       </Section>
       {!isEditable ? (
@@ -64,11 +64,17 @@ function Comment({ comment, user, onDelete, onUpdate }) {
   )
 }
 
+const commonStyles = css`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const Wrapper = styled.li`
+  ${commonStyles}
   background-color: white;
   box-shadow: 5px 5px #888888;
-  display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   width: 96%;
   height: auto;
   margin 1% auto 1% auto;
@@ -77,8 +83,12 @@ const Wrapper = styled.li`
 `;
 
 const Section = styled.section`
-  display: flex;
-  justify-content: flex-end;
+  ${commonStyles}
+`;
+
+const H4 = styled.h4`
+  color: orange;
+  margin: 0;
 `;
 
 const Message = styled.p`
@@ -89,8 +99,6 @@ const Message = styled.p`
 
 const Date = styled.span`
   color: gray;
-  display: flex;
-  justify-content: flex-end;
   width: 100%;
 `;
 

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function SearchBar({ searchValue, handleSearch }) {
 
@@ -17,19 +17,22 @@ function SearchBar({ searchValue, handleSearch }) {
   );
 }
 
-const Wrapper = styled.div`
+const commonStyles = css`
   display: flex;
   justify-content: flex-start;
-  width: 60%;
-  height: 40%;
   margin: 0;
 `;
 
+const Wrapper = styled.div`
+  ${commonStyles}
+  width: 60%;
+  height: 40%;
+`;
+
 const Input = styled.input`
-  display: flex;
+  ${commonStyles}
   width: 80%;
   height: 100%;
-  margin: 0;
 `;
 
 export default SearchBar;

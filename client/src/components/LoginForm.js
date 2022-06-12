@@ -62,4 +62,4 @@ function LoginForm({ onLogin, setErrors }) {
   )
 }
 
-export default LoginForm
+export default LoginForm;

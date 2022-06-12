@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { Icon } from "../styles";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function Exercise({ exercise, user }) {
   const history = useHistory();
@@ -44,10 +44,15 @@ function Exercise({ exercise, user }) {
   )
 }
 
-const Wrapper = styled.div`
-  background-color: white;
+const commonStyles = css`
   display: flex;
+  margin: 0;
   flex-direction: column;
+`;
+
+const Wrapper = styled.div`
+  ${commonStyles}
+  background-color: white;
   align-items: center;
   width: 60%;
   height: 100%;
@@ -55,17 +60,17 @@ const Wrapper = styled.div`
 `;
 
 const Section = styled.section`
-  display: flex;
+  ${commonStyles}
+  flex-direction: row;
   width: 100%;
   height: 50%;
   animation: appear 1.8s ease forwards;
 `;
 
 const Info = styled.div`
+  ${commonStyles}
   background-color: lightgray;
   border: solid 2px orange;
-  display: flex;
-  flex-direction: column;
   width: 40%;
   padding: 2%;
 `;
@@ -93,7 +98,7 @@ const P = styled.p`
 `;
 
 const Figure = styled.figure`
-  display: flex;
+  ${commonStyles}
   justify-content: center;
   align-items: center;
   width: 60%;
@@ -108,29 +113,25 @@ const Img = styled.img`
 `;
 
 const Method = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${commonStyles}
   justify-content: space-between;
   width: 100%;
-  margin: 0;
   overflow: hidden;
   padding: 2%;
 `;
 
 const Description = styled.p`
-  display: flex;
+  ${commonStyles}
   font-size: 18px;
   height: 100%;
-  margin: 0;
   overflow-y: auto;
 `;
 
 const Nav = styled.nav`
-  display: flex;
+  ${commonStyles}
   justify-content: space-between;
   width: 100%;
   bottom: 0;
-  margin: 0;
 `;
 
-export default Exercise
+export default Exercise;

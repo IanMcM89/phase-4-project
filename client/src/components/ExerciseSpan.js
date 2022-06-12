@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function ExerciseSpan({ exercise }) {
   const history = useHistory();
@@ -11,40 +11,43 @@ function ExerciseSpan({ exercise }) {
         <H2 style={{ color: "darkblue", margin: 0 }}>{exercise.title}</H2>
         <H4>{exercise.muscle.title}</H4>
       </Section>
-        <P>Posted By: {exercise.posted_by}</P>
+      <P>Posted By: {exercise.posted_by}</P>
     </Wrapper>
   )
 }
 
-const H2 = styled.h2`
-  color: darkblue;
+const commonStyles = css`
+  display: flex;
   margin: 0;
+  transition: 0.3s;
+`;
+
+const H2 = styled.h2`
+  ${commonStyles}
+  color: darkblue;
 `;
 
 const H4 = styled.h3`
+  ${commonStyles}
   color: orange;
-  margin: 0;
   font-wight: bold;
-  transition: 0.3s;
 `;
 
 const P = styled.p`
+  ${commonStyles}
+  justify-content: center;
   color: gray;
-  display: flex;
   width: 35%;
-  margin: 0;
-  transition: 0.3s;
 `;
 
 const Wrapper = styled.span`
+  ${commonStyles}
   background-color: white;
   box-shadow: 5px 5px #888888;
-  display: flex;
   flex-direction: row;
   width: 96%;
   margin 1% auto 1% auto;
   padding: 8px;
-  transition: 0.3s;
   animation: expand 0.4s ease forwards;
 
   &:hover {
@@ -56,7 +59,7 @@ const Wrapper = styled.span`
 `;
 
 const Section = styled.section`
-  display: flex;
+  ${commonStyles}
   flex-direction: column;
   width: 65%;
   height: auto;
