@@ -27,7 +27,7 @@ function NavBar({ user, setUser }) {
           }}
           alt="App Logo" />
         <Link style={{ textDecoration: "none" }} to="/">
-          <Title style={{ color: "white" }}>Fitness App</Title>
+          <Title style={{ color: "white" }}>Fitness</Title>
         </Link>
       </Logo>
       <Nav>
