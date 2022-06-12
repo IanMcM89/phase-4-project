@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 import ExerciseList from "../pages/ExerciseList";
 import ExercisePage from "../pages/ExercisePage";
 import NewExercise from "../pages/NewExercise";
-import styled,{css} from "styled-components";
+import styled from "styled-components";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,7 +22,7 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <Wrapper>
+    <>
       <NavBar user={user} setUser={setUser} />
       <Main>
         <Switch>
@@ -37,29 +37,18 @@ function App() {
           </Route>
         </Switch>
       </Main>
-    </Wrapper>
+    </>
   );
 }
 
-const commonStyles=css`
+const Main = styled.main`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   margin: 0;
   overflow: hidden;
-`;
-
-const Wrapper = styled.div`
-  ${commonStyles}
-  background: url("/images/background.png") repeat;
-  background-size: 400px;
-`;
-
-const Main = styled.main`
-  ${commonStyles}
-  align-items: center;
-  height: 90vh;
 `;
 
 export default App;
