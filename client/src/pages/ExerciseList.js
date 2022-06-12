@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, Overlay } from "../styles";
 import BodyMap from "../components/BodyMap";
 import ExerciseSpan from "../components/ExerciseSpan";
 import SearchBar from "../components/SearchBar";
-import styled from "styled-components";
+import { Button, Overlay } from "../styles";
+import styled,{css} from "styled-components";
 
 function ExerciseList({ muscles }) {
   const [exercises, setExercises] = useState([]);
@@ -12,47 +12,57 @@ function ExerciseList({ muscles }) {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    filterExercises();
+    getExercises();
   }, []);
 
-  const filterExercises = (group) => {
+  const getExercises = (group) => {
     fetch("/api/exercises").then((r) => {
-      if (r.ok && group && group !== "default") {
-        r.json().then((exercises) => {
-          setExercises(exercises.filter((exercise) => (
-            exercise.muscle.group === group
-          )));
-        });
-      } else {
-        r.json()
-          .then((exercises) => {
-            setSearchResults(exercises)
-            setExercises(exercises)
-        })
-      }
+      r.json().then((exercises) => {
+        const filtered = exercises.filter((exercise) => (
+          exercise.muscle.group === group
+        ));
+
+        let results;
+
+        if (group && group !== "default") {
+          results = filtered
+        } else {
+          results = exercises
+        }
+
+        setExercises(results);
+        setSearchResults(results);
+        setSearchValue('');
+      })
     });
   }
 
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
+    const keys = ["title", "posted_by", "muscle"];
 
-    setSearchResults(exercises.filter((exercise) => (
-      exercise.title.toLowerCase().includes(value)
-    )));
     setSearchValue(e.target.value);
+    setSearchResults(exercises.filter((exercise) => {
+      for (let key of keys) {
+        const objKey = exercise[key];
+
+        if ((!objKey.group) && (objKey.toLowerCase().includes(value))) {
+          return true;
+        } else if ((objKey.group) && objKey.group.includes(value)) {
+          return true;
+        }
+      }
+      return false;
+    }));
   };
 
   return (
     <Wrapper>
       <BodyMap
         muscles={muscles}
-        filterExercises={filterExercises}
+        getExercises={getExercises}
       />
       <Section>
-        <SearchBar
-          searchValue={searchValue}
-          handleSearch={handleSearch}
-        />
         <Ul>
           {exercises.length > 0 ? (
             searchResults.map((exercise) => (
@@ -63,6 +73,10 @@ function ExerciseList({ muscles }) {
           )}
         </Ul>
         <Nav>
+          <SearchBar
+            searchValue={searchValue}
+            handleSearch={handleSearch}
+          />
           <Button as={Link} to="/create" variant="orange">Create Exercise</Button>
         </Nav>
       </Section>
@@ -71,29 +85,29 @@ function ExerciseList({ muscles }) {
   )
 }
 
-const Wrapper = styled.div`
-  background-color: lightgray;
+const commonStyles=css`
   display: flex;
+  align-items: center;
   width: 100%;
   height: 100%;
   margin: 0;
+`;
+
+const Wrapper = styled.div`
+  ${commonStyles}
+  background-color: lightgray;
   overflow: hidden;
 `;
 
 const Section = styled.div`
-  display: flex;
+  ${commonStyles}
   flex-direction: column;
-  align-items: center;
   width: 40%;
-  height: 100%;
-  margin: 0;
 `;
 
 const Ul = styled.ul`
-  display: flex;
+  ${commonStyles}
   flex-direction: column;
-  align-items: center;
-  width: 100%;
   height: 90%;
   margin: 0 0 1% 0;
   padding: 0;
@@ -101,11 +115,9 @@ const Ul = styled.ul`
 `;
 
 const Nav = styled.nav`
+  ${commonStyles}
   background-color: darkblue;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  width: 100%;
   height: 10%;
 `;
 
