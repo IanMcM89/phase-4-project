@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from 'react-router-dom';
-import NavBar from "./NavBar";
 import Login from "../pages/Login";
+import NavBar from "./NavBar";
 import ExerciseList from "../pages/ExerciseList";
 import ExercisePage from "../pages/ExercisePage";
 import NewExercise from "../pages/NewExercise";
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,9 +22,9 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <>
+    <Wrapper>
       <NavBar user={user} setUser={setUser} />
-      <Wrapper>
+      <Main>
         <Switch>
           <Route path="/create">
             <NewExercise user={user} />
@@ -36,21 +36,30 @@ function App() {
             <ExerciseList />
           </Route>
         </Switch>
-      </Wrapper>
-    </>
+      </Main>
+    </Wrapper>
   );
 }
 
-const Wrapper = styled.main`
+const commonStyles=css`
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   margin: 0;
   overflow: hidden;
+`;
+
+const Wrapper = styled.div`
+  ${commonStyles}
   background: url("/images/background.png") repeat;
   background-size: 400px;
+`;
+
+const Main = styled.main`
+  ${commonStyles}
+  align-items: center;
+  height: 90vh;
 `;
 
 export default App;
