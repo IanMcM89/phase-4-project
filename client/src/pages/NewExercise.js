@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { Title, Form, FormField, Input, Textarea, Label, Error, Button, Overlay } from "../styles";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function NewExercise({ user }) {
   const history = useHistory();
@@ -44,7 +44,7 @@ function NewExercise({ user }) {
     const newExercise = await r.json();
     setLoading(false);
     if (r.ok) {
-      history.push(`/exercises/${newExercise.id}`)
+      history.push(`/exercises/${newExercise.id}`);
     } else {
       setErrors(newExercise.errors);
     }
@@ -168,9 +168,13 @@ function NewExercise({ user }) {
   )
 }
 
-const Wrapper = styled.div`
-  background-color: white;
+const commonStyles = css`
   display: flex;
+`;
+
+const Wrapper = styled.div`
+  ${commonStyles}
+  background-color: white;
   flex-direction: column;
   align-items: center;
   width: 50%;
@@ -179,7 +183,7 @@ const Wrapper = styled.div`
 `;
 
 const PostLogo = styled.div`
-  display: flex;
+  ${commonStyles}
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -189,14 +193,14 @@ const PostLogo = styled.div`
 `;
 
 const PostForm = styled(Form)`
-  display: flex;
+  ${commonStyles}
   width: 100%;
   height: 100%;
   padding: 0 2% 0 2%;
 `;
 
 const Section1 = styled.section`
-  display: flex;
+  ${commonStyles}
   flex-direction: column;
   width: 60%;
   margin: 0;
@@ -222,4 +226,4 @@ const Output = styled.output`
   color: orange;
 `;
 
-export default NewExercise
+export default NewExercise;

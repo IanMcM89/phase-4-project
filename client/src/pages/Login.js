@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
-import { Header } from "../styles";
-import { Logo, Title, FormField, Error, Button, Overlay } from "../styles";
+import { Header, Logo, Title, FormField, Error, Button, Overlay } from "../styles";
+import styled, { css } from "styled-components";
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
@@ -12,7 +11,7 @@ function Login({ onLogin }) {
   return (
     <>
       <Header />
-      <Wrapper>
+      <Main>
         <Section>
           <Logo style={{ animation: "none" }}>
             <img src="/images/logo_1.png" style={{ width: "100px" }} alt="App Logo" />
@@ -47,15 +46,19 @@ function Login({ onLogin }) {
             )}
           </FormField>
         </Section>
-      </Wrapper>
+      </Main>
       <Overlay variant="down" />
     </>
   )
 }
 
-const Wrapper = styled.div`
+const commonStyles = css`
   display: flex;
   align-items: center;
+`;
+
+const Main = styled.main`
+  ${commonStyles}
   width: 100vw;
   height: 90vh;
   margin: 0;
@@ -64,14 +67,13 @@ const Wrapper = styled.div`
 `;
 
 const Section = styled.section`
+  ${commonStyles}
   background-color: white;
-  display: flex;
   flex-direction: column;
-  align-items: center;
   width: 30%;
   height: 100%;
   margin: auto;
   padding: 2%;
 `;
 
-export default Login
+export default Login;

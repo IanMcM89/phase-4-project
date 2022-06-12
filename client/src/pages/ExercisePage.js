@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
-import { Overlay } from "../styles";
 import Exercise from "../components/Exercise";
 import CommentList from "../components/CommentList";
 import Response from "../components/Response";
+import { Overlay } from "../styles";
 import styled from "styled-components";
 
 function ExercisePage({ user }) {
@@ -22,25 +22,25 @@ function ExercisePage({ user }) {
   }, [location.pathname]);
 
   return (
-    <>
+    <Wrapper>
       {(() => {
         if (exercise) {
           return (
-            <Wrapper>
+            <>
               <Exercise exercise={exercise} user={user} />
               <CommentList exercise={exercise} user={user} />
-            </Wrapper>
+            </>
           )
         } else if (response) {
           return (
             <Response response={response} />
           )
         } else {
-          return (<Wrapper/>)
+          return (<Wrapper />)
         }
       })()}
       <Overlay variant="left" />
-    </>
+    </Wrapper>
   )
 }
 

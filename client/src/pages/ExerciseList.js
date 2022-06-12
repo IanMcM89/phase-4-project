@@ -4,7 +4,7 @@ import BodyMap from "../components/BodyMap";
 import ExerciseSpan from "../components/ExerciseSpan";
 import SearchBar from "../components/SearchBar";
 import { Button, Overlay } from "../styles";
-import styled,{css} from "styled-components";
+import styled, { css } from "styled-components";
 
 function ExerciseList({ muscles }) {
   const [exercises, setExercises] = useState([]);
@@ -85,7 +85,7 @@ function ExerciseList({ muscles }) {
   )
 }
 
-const commonStyles=css`
+const commonStyles = css`
   display: flex;
   align-items: center;
   width: 100%;
