@@ -135,7 +135,9 @@ const P1 = styled.p`
 
 const P2 = styled(P1)`
   color: goldenrod;
-  font-size: 1rem
+  font-size: 1rem;
+  overflow-wrap;
+  width: 50%;
 `;
 
 const Img = styled.img`
