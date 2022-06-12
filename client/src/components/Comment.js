@@ -37,7 +37,7 @@ function Comment({ comment, user, onDelete, onUpdate }) {
   return (
     <Wrapper>
       <Section>
-        <h3 style={{ color: "orange", margin: 0 }}>{comment.user.username}:</h3>
+        <h4 style={{ color: "orange", margin: 0 }}>{comment.user.username}:</h4>
         <Date>Posted: {comment.created_at}</Date>
       </Section>
       {!isEditable ? (
@@ -82,8 +82,8 @@ const Section = styled.section`
 `;
 
 const Message = styled.p`
-  font-size: 14px;
   font-family: cursive;
+  font-size: 14px;
   margin: 2px;
 `;
 
