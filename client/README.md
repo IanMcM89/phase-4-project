@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Fitness/365 App
+
+Welcome to `Fitness/365!` Tired of scrolling and searching the internet to find your next workout? `Fitness/365` is an ever growing database of weighted and non weighted exercises for quick reference both in the gym or at home. Sign up to get started!
+
+## Features
+
+<ul>
+    <li>An ever growing collection of exercises.</li>
+    <li>Interactive body map with five major muscle groups.</li>
+    <li>Post new exercises to the catalogue.</li>
+    <li>Post and edit your own comments on your own and other users' posts.</li>
+    <li>Search algorithm allows a user to refine their search by title, muscle group and even other poster.</li>
+    <li>Each exercise contains informative detail so you can achieve optimum performance!</li>
+    <li>Made a mistake? No worries! Remove an unwanted exercise post and try again!</li>
+</ul>
+
+## Usage
+
+### `Login`
+
+Existing users can login to the app from the login screen by providing the appropriate credentials and clicking the `Login` button.
+
+### `Signup`
+
+New users can signup via the login screen by clicking the `Sign Up` button and providing their desired username and password.
+
+**Note: Usernames must be unique.**
+**Note: Password and password confirmation must match.**
+
+### `Body Map Muscle Selector`
+
+Hover over different parts of the body to highlight the major muscle groups, display sub-groups and filter the database via your selected muscle.
+
+**Note: Click the void space in the body map to display all exercises.**
+
+### `Comment`
+
+If you are the owner of the comment, simply click the ✏️ icon to edit your comment. 
+
+Once finished, click the ✔ icon to `update` your comment in the comments list.
+
+No longer want your comment? Simply click the 🗑️ icon and your comment will be `deleted`.
+
+### `Post`
+
+Fill out all fields in the provided form and click the `submit` button. The chest muscle group is selected by default. Click the selector to change the group. If you aren’t satisfied with your post, you can `delete` it at any timeby clicking the 🗑️ icon in the bottom right corner of your post and the post will be removed from our database.
+
+**Note: Descriptions are limited to 500 characters!**
+
+## Preview
+
+Coming soon!
+
+## Image Credits
+
+All exercise images used in the creation of this app are provided by [burst](https://burst.shopify.com/) and are for free for commercial and noncommercial purposes. Credits for all exercise images go to Nicole De Khors via `burst`.
+
+All other images used in the creation of this app are provided by [pixabay](https://pixabay.com/) and are free for commercial use.
+
+## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
