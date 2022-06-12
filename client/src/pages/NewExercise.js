@@ -54,7 +54,7 @@ function NewExercise({ user }) {
     <Wrapper>
       <PostLogo>
         <img src="/images/logo_1.png" style={{ width: "100px" }} alt="App Logo" />
-        <Title>Create Exercise</Title>
+        <Title variant="post">Create Exercise</Title>
       </PostLogo>
       <PostForm onSubmit={handleSubmit}>
         <Section1>

@@ -129,6 +129,7 @@ const Description = styled.p`
 
 const Nav = styled.nav`
   ${commonStyles}
+  flex-direction: row;
   justify-content: space-between;
   width: 100%;
   bottom: 0;

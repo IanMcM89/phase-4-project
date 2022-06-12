@@ -15,7 +15,7 @@ function Login({ onLogin }) {
         <Section>
           <Logo style={{ animation: "none" }}>
             <img src="/images/logo_1.png" style={{ width: "100px" }} alt="App Logo" />
-            <Title>Fitness</Title>
+            <Title variant="logo">Fitness</Title>
           </Logo>
           {
             showLogin ? (
