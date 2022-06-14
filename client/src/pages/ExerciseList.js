@@ -96,6 +96,8 @@ const commonStyles = css`
 const Wrapper = styled.div`
   ${commonStyles}
   background-color: lightgray;
+  width: 100vw;
+  height: 90vh;
   overflow: hidden;
 `;
 
