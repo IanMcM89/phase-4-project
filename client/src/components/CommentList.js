@@ -132,6 +132,11 @@ const Wrapper = styled.div`
   width: 40%;
   height: 100%;
   margin: 0;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 const Section = styled.section`

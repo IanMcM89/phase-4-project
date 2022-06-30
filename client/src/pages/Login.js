@@ -74,6 +74,10 @@ const Section = styled.section`
   height: 100%;
   margin: auto;
   padding: 2%;
+
+  @media (max-width: 1023px) {
+    width: 55%;
+  }
 `;
 
 export default Login;

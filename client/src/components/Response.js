@@ -36,6 +36,10 @@ const Section = styled.section`
   width: 400px;
   margin: auto;
   padding: 2%;
+
+  @media (max-width: 1023px) {
+    width: 65%;
+  }
 `;
 
 const H1 = styled.h1`

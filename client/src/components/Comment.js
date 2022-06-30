@@ -80,6 +80,10 @@ const Wrapper = styled.li`
   margin 1% auto 1% auto;
   padding: 8px;
   animation: expand 0.4s ease forwards;
+
+  @media (max-width: 1023px) {
+    width: 96%;
+  }
 `;
 
 const Section = styled.section`

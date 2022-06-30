@@ -111,6 +111,11 @@ const Wrapper = styled.div`
   width: 60%;
   height: 100%;
   overflow: hidden;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 const Figure = styled.figure`
@@ -146,6 +151,13 @@ const Img = styled.img`
   height: 600px;
   orgWidth: 600px;
   orgHeight: 600px;
+
+  @media (max-width: 1023px) {
+    width: 500px; 
+    height: 500px;
+    orgWidth: 500px;
+    orgHeight: 500px;
+  }
 `;
 
 export default BodyMap;

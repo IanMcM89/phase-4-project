@@ -57,6 +57,12 @@ const Wrapper = styled.div`
   width: 60%;
   height: 100%;
   padding: 1%;
+  
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 50%;
+    padding: 3%;
+  }
 `;
 
 const Section = styled.section`

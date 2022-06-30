@@ -191,6 +191,11 @@ const WrapperForm = styled.div`
   width: 50%;
   height: 100%;
   margin: auto;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const PostLogo = styled.div`

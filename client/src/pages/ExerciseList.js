@@ -80,7 +80,7 @@ function ExerciseList({ muscles }) {
           <Button as={Link} to="/create" variant="orange">Create Exercise</Button>
         </Nav>
       </Section>
-      <Overlay variant="right" />
+      {/* <Overlay variant="right" /> */}
     </Wrapper>
   )
 }
@@ -99,12 +99,21 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 90vh;
   overflow: hidden;
+  
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
 `;
 
 const Section = styled.div`
   ${commonStyles}
   flex-direction: column;
   width: 40%;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 const Ul = styled.ul`
