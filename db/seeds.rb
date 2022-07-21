@@ -44,6 +44,8 @@ User.create(
   password_confirmation: "password5"
 )
 
+# Muscle Seeds
+
 Muscle.create(
   id: 1, 
   group: "chest",
@@ -52,8 +54,6 @@ Muscle.create(
   image_url: "/images/body/chest.png",
   coords: "160,186,132,197,115,213,115,145,160,141,206,145,208,210,186,195"
 )
-
-# Muscle Seeds
 
 Muscle.create(
   id: 2, 
@@ -323,50 +323,50 @@ Exercise.create(
 
 # Comment Seeds
 
-Exercise.all.each  do |w| 
+Exercise.all.each  do |e| 
   Comment.create(
     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     user_id: 1,
-    exercise_id: w.id
+    exercise_id: e.id
   )
 end
 
-Exercise.all.each  do |w| 
+Exercise.all.each  do |e| 
   Comment.create(
     message: "Augue ut lectus arcu bibendum.",
     user_id: 2,
-    exercise_id: w.id
+    exercise_id: e.id
   )
 end
 
-Exercise.all.each  do |w| 
+Exercise.all.each  do |e| 
   Comment.create(
     message: "Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Eget velit aliquet sagittis id consectetur purus ut faucibus. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Lacinia quis vel eros donec ac.",
     user_id: 3,
-    exercise_id: w.id
+    exercise_id: e.id
   )
 end
 
-Exercise.all.each  do |w| 
+Exercise.all.each  do |e| 
   Comment.create(
     message: "Eget nunc lobortis mattis aliquam faucibus purus in massa. Molestie nunc non blandit massa enim nec dui nunc.",
     user_id: 4,
-    exercise_id: w.id
+    exercise_id: e.id
   )
 end
 
-Exercise.all.each  do |w| 
+Exercise.all.each  do |e| 
   Comment.create(
     message: "Ut tristique et egestas quis ipsum suspendisse ultrices gravida. Amet aliquam id diam maecenas ultricies. Et tortor at risus viverra adipiscing at in. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Eget velit aliquet sagittis id consectetur purus ut faucibus. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Lacinia quis vel eros donec ac.",
     user_id: 5,
-    exercise_id: w.id
+    exercise_id: e.id
   )
 end
 
-Exercise.all.each  do |w| 
+Exercise.all.each  do |e| 
   Comment.create(
     message: "Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies.",
     user_id: 6,
-    exercise_id: w.id
+    exercise_id: e.id
   )
 end
